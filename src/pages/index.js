@@ -28,21 +28,21 @@ const IndexPage = ({ data }) => {
 					</li>
 				</ul>
 			</nav>
-			<section className='hero'>
+			<section>
 				<div>
 					<h1>
-						Hi there, my name is <span>Asher Best</span>
+						Hi there, my name is <span className='text-green'>Asher Best</span>
 						<br />
 						I'm a JAMStack Developer
 					</h1>
-					<a href='/#contact' className='call-to-action'>
+					<a href='/#contact' className='call-to-action cta-green'>
 						Learn More
 					</a>
 				</div>
 			</section>
-			<section>
+			<section className='background-green'>
 				<div>
-					<h2>ABOUT</h2>
+					<h2 className='text-center'>ABOUT</h2>
 					<div>
 						<div>
 							<StaticImage src='../images/asher_best.jpg' alt='Asher Best' width={768} height={768} />
@@ -54,33 +54,43 @@ const IndexPage = ({ data }) => {
 								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
 								occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 							</p>
-							<Link to='#!'>Resume</Link>
+							<a to='#!' className='call-to-action cta-white'>
+								Resume
+							</a>
 						</div>
 					</div>
 				</div>
 			</section>
 			<section>
-				<h2>PROJECTS</h2>
-				{data.allContentfulProject.nodes.map(node => (
-					<div key={node.id}>
-						<div>
-							<h3>{node.title}</h3>
-							<p>{node.description.description}</p>
-							<a href={node.siteUrl}>See Live</a>
+				<div>
+					<h2 className='text-center'>PROJECTS</h2>
+					{data.allContentfulProject.nodes.map(node => (
+						<div key={node.id} className='project-card'>
+							<div>
+								<h3>{node.title}</h3>
+								<p>{node.description.description}</p>
+								<a href={node.siteUrl} className='call-to-action cta-green'>
+									See Live
+								</a>
+							</div>
+							<div>
+								<GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
+							</div>
 						</div>
-						<div>
-							<GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
-						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</section>
-			<section>
-				<h2>CONTACT</h2>
-				<p>Would you like to work with me? Awesome!</p>
-				<a href='mailto:ashermcbest@gmail.com'>Let's Talk</a>
+			<section className='background-green'>
+				<div className='text-center'>
+					<h2>CONTACT</h2>
+					<p>Would you like to work with me? Awesome!</p>
+					<a href='mailto:ashermcbest@gmail.com' className='call-to-action cta-white margin-auto'>
+						Let's Talk
+					</a>
+				</div>
 			</section>
 			<footer>
-				<ul>
+				<ul className='social-links'>
 					<li>
 						<a href=''>
 							<LinkedIn size={50} color='#feffff' />
@@ -97,7 +107,7 @@ const IndexPage = ({ data }) => {
 						</a>
 					</li>
 				</ul>
-				<p>© 2021 - Website designed & developed by Asher Best</p>
+				<p className='text-center'>© 2021 - Website designed & developed by Asher Best</p>
 			</footer>
 		</main>
 	);

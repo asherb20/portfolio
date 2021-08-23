@@ -9,7 +9,6 @@ $white: #feffff;
 
 %sub-section {
 	max-width: 1200px;
-	min-height: 500px;
 	margin: auto;
 	@extend %padding-sides;
 }
@@ -26,6 +25,7 @@ $white: #feffff;
 	text-align: center;
 	text-decoration: none;
 	background: none;
+	margin-bottom: 1em;
 }
 
 @mixin call-to-action($theme: $white) {
@@ -49,16 +49,21 @@ nav {
 	height: 75px;
 	@extend %padding-sides;
 	@include flex($direction: row, $justify-content: space-between, $align-items: center);
+}
 
-	p {
-		font-size: 20px;
-		font-weight: 700;
-		margin: 0;
-	}
+nav p {
+	font-size: 20px;
+	font-weight: 700;
+	margin: 0;
+}
 
-	ul {
-		display: none;
-	}
+nav ul {
+	display: none;
+}
+
+section {
+	min-height: 500px;
+	@include flex($direction: column, $justify-content: center);
 }
 
 section > div {
@@ -69,18 +74,55 @@ section > div {
 	@extend %call-to-action;
 }
 
-.hero {
-	div {
-		@include flex($direction: column, $justify-content: center);
+.cta-green {
+	@include call-to-action($theme: $green);
+}
 
-		h1 {
-			span {
-				color: $green;
-			}
-		}
+.cta-white {
+	@include call-to-action($theme: $white);
+}
 
-		a {
-			@include call-to-action($theme: $green);
-		}
-	}
+.text-green {
+	color: $green;
+}
+
+.background-green {
+	background: $green;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.project-card {
+	margin-bottom: 2em;
+}
+
+.margin-auto {
+	margin: auto;
+}
+
+footer {
+	@extend %padding-sides;
+}
+
+.social-links {
+	list-style-type: none;
+	padding: 0;
+	@include flex($direction: row, $justify-content: center, $align-items: center);
+}
+
+.social-links a {
+	display: block;
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+}
+
+footer p {
+	margin: 0 auto;
+	max-width: 375px;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	font-size: 0.75em;
+	border-top: 2px solid $white;
 }
