@@ -1,0 +1,86 @@
+$black: #17252a;
+$green: #3aafa9;
+$white: #feffff;
+
+%padding-sides {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+%sub-section {
+	max-width: 1200px;
+	min-height: 500px;
+	margin: auto;
+	@extend %padding-sides;
+}
+
+%call-to-action {
+	display: block;
+	border-width: 3px;
+	border-style: solid;
+	font-size: 24px;
+	font-weight: 700;
+	height: 50px;
+	line-height: 50px;
+	width: 200px;
+	text-align: center;
+	text-decoration: none;
+	background: none;
+}
+
+@mixin call-to-action($theme: $white) {
+	border-color: $theme;
+	color: $theme;
+}
+
+@mixin flex($direction: column, $justify-content: flex-start, $align-items: flex-start) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify-content;
+	align-items: $align-items;
+}
+
+main {
+	background-color: $black;
+	color: $white;
+}
+
+nav {
+	height: 75px;
+	@extend %padding-sides;
+	@include flex($direction: row, $justify-content: space-between, $align-items: center);
+
+	p {
+		font-size: 20px;
+		font-weight: 700;
+		margin: 0;
+	}
+
+	ul {
+		display: none;
+	}
+}
+
+section > div {
+	@extend %sub-section;
+}
+
+.call-to-action {
+	@extend %call-to-action;
+}
+
+.hero {
+	div {
+		@include flex($direction: column, $justify-content: center);
+
+		h1 {
+			span {
+				color: $green;
+			}
+		}
+
+		a {
+			@include call-to-action($theme: $green);
+		}
+	}
+}
