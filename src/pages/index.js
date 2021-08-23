@@ -1,184 +1,171 @@
-import * as React from "react"
+import * as React from 'react';
+import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { Link } from 'gatsby';
+import { graphql } from 'gatsby';
+import { Bars, LinkedIn, GitHub, Email } from '../components/icons';
 
-// styles
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-// data
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
+const styles = {
+  main: {
+    backgroundColor: '#17252A',
+    color: '#feffff'
   },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
+  nav: {
+    height: 75,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingLeft: '1em',
+    paddingRight: '1em'
   },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
+  navTitle: {
+    fontSize: 20,
+    fontWeight: 700,
+    margin: 0
   },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
+  navList: {
+    display: 'none'
   },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
+  section: {
+    maxWidth: 1200,
+    margin: 'auto',
+    paddingLeft: '1em',
+    paddingRight: '1em'
   },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
+  hero: {
+    height: 500,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center'
   },
-]
+  callToAction: {
+    display: 'block',
+    borderWidth: 3,
+    borderStyle: 'solid',
+    fontSize: 24,
+    fontWeight: 700,
+    height: 50,
+    lineHeight: '50px',
+    width: 200,
+    textAlign: 'center',
+    textDecoration: 'none'
+  }
+};
 
-// markup
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
   return (
-    <main style={pageStyles}>
-      <title>Home Page</title>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! </span>
-        <span role="img" aria-label="Party popper emojis">
-          🎉🎉🎉
-        </span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
-        <span role="img" aria-label="Sunglasses smiley emoji">
-          😎
-        </span>
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-          >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
-              >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
-                </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
+    <main style={styles.main}>
+      <nav style={styles.nav}>
+        <p style={styles.navTitle}>ASHER BEST</p>
+        <div>
+          <Bars size={50} color='#feffff' />
+        </div>
+        <ul style={styles.navList}>
+          <li>
+            <Link to='/#about'>About</Link>
           </li>
+          <li>
+            <Link to='/#projects'>Projects</Link>
+          </li>
+          <li>
+            <Link to='/blog'>Blog</Link>
+          </li>
+          <li>
+            <Link to='/#contact'>Contact</Link>
+          </li>
+        </ul>
+      </nav>
+      <section style={styles.section}>
+        <div style={styles.hero}>
+          <h1>
+            Hi there, my name is <span style={{ color: '#3AAFA9' }}>Asher Best</span>
+            <br />
+            I'm a JAMStack Developer
+          </h1>
+          <a href='/#contact' style={{ ...styles.callToAction, color: '#3AAFA9', borderColor: '#3AAFA9' }}>
+            Learn More
+          </a>
+        </div>
+      </section>
+      <section>
+        <div>
+          <h2>ABOUT</h2>
+          <div>
+            <div>
+              <StaticImage src='../images/asher_best.jpg' alt='Asher Best' width={768} height={768} />
+            </div>
+            <div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+              <Link to='#!'>Resume</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>PROJECTS</h2>
+        {data.allContentfulProject.nodes.map(node => (
+          <div key={node.id}>
+            <div>
+              <h3>{node.title}</h3>
+              <p>{node.description.description}</p>
+              <a href={node.siteUrl}>See Live</a>
+            </div>
+            <div>
+              <GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
+            </div>
+          </div>
         ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+      </section>
+      <section>
+        <h2>CONTACT</h2>
+        <p>Would you like to work with me? Awesome!</p>
+        <a href='mailto:ashermcbest@gmail.com'>Let's Talk</a>
+      </section>
+      <footer>
+        <ul>
+          <li>
+            <a href=''>
+              <LinkedIn size={50} color='#feffff' />
+            </a>
+          </li>
+          <li>
+            <a href=''>
+              <GitHub size={50} color='#feffff' />
+            </a>
+          </li>
+          <li>
+            <a href=''>
+              <Email size={50} circleColor='#feffff' iconColor='#17252A' />
+            </a>
+          </li>
+        </ul>
+        <p>© 2021 - Website designed & developed by Asher Best</p>
+      </footer>
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export const query = graphql`
+  query IndexQuery {
+    allContentfulProject {
+      nodes {
+        id
+        title
+        description {
+          description
+        }
+        siteUrl
+        previewImage {
+          id
+          title
+          gatsbyImageData
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
