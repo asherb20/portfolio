@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export const Bars = ({ size, color }) => {
   return (
-    <svg height={size} width={size} viewBox='-125 100 1024 768' xmlns='http://www.w3.org/2000/svg'>
+    <svg height={size} width={size} viewBox='-125 75 1024 768' xmlns='http://www.w3.org/2000/svg'>
       <path fill={color} d='M0 192v128h768v-128h-768z m0 384h768v-128h-768v128z m0 256h768v-128h-768v128z' />
     </svg>
   );

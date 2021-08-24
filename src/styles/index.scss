@@ -2,144 +2,164 @@ $black: #17252a;
 $green: #3aafa9;
 $white: #feffff;
 
-%padding {
-	padding: 1em;
-}
-
-%sub-section {
-	width: 100%;
-	max-width: 1200px;
-	margin: 0 auto;
-	@extend %padding;
-}
-
-%call-to-action {
-	display: block;
-	border-width: 3px;
-	border-style: solid;
-	font-size: 24px;
-	font-weight: 700;
-	height: 50px;
-	line-height: 44px;
-	width: 200px;
-	text-align: center;
-	text-decoration: none;
-	background: none;
-}
-
-@mixin call-to-action($theme: $white) {
-	border-color: $theme;
-	color: $theme;
-}
-
-@mixin flex($direction: column, $justify-content: flex-start, $align-items: flex-start) {
-	display: flex;
-	flex-direction: $direction;
-	justify-content: $justify-content;
-	align-items: $align-items;
-}
-
 main {
-	background-color: $black;
-	color: $white;
+  background-color: $black;
 }
 
-nav {
-	@extend %padding;
-	@include flex($direction: row, $justify-content: space-between, $align-items: center);
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $black;
+  z-index: 1;
 }
 
-nav p {
-	font-size: 20px;
-	font-weight: 700;
-	margin: 0;
+.nav-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav ul {
-	display: none;
+.nav-title {
+  margin: 0;
+  font-weight: 700;
+  color: $white;
 }
 
-section {
-	min-height: 500px;
-	@include flex($direction: column, $justify-content: center);
-	@extend %padding;
+.hide {
+  display: none;
 }
 
-section > div {
-	@extend %sub-section;
+.show {
+  display: block;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1em;
+  width: 100%;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  color: $white;
+}
+
+.hero-title span {
+  color: $green;
+}
+
+@mixin cta-theme($color: $green) {
+  border-color: $color;
+  color: $color;
 }
 
 .call-to-action {
-	@extend %call-to-action;
+  display: block;
+  max-width: 200px;
+  height: 50px;
+  line-height: 40px;
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 24px;
+  font-weight: 700;
+  text-decoration: none;
 }
 
-.cta-green {
-	@include call-to-action($theme: $green);
+.hero-cta {
+  @include cta-theme($color: $green);
 }
 
-.cta-white {
-	@include call-to-action($theme: $white);
+.about {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  background-color: $green;
+  color: $white;
 }
 
-.text-green {
-	color: $green;
+.about-title {
+  text-align: center;
 }
 
-.background-green {
-	background: $green;
+.about-image-wrapper {
+  padding-bottom: 2.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 100%;
 }
 
-.text-center {
-	text-align: center;
+.about-content {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.projects {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+.projects-title {
+  color: $white;
+  text-align: center;
 }
 
 .project-card {
-	margin-bottom: 3em;
+  color: $white;
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
 }
 
-.margin-auto {
-	margin: auto;
+.project-card-content {
+  padding-bottom: 1em;
 }
 
-footer {
-	@extend %padding;
-}
-
-.social-links {
-	list-style-type: none;
-	padding: 0;
-	@include flex($direction: row, $justify-content: center, $align-items: center);
-}
-
-.social-links a {
-	display: block;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-}
-
-footer p {
-	margin: 0 auto;
-	max-width: 375px;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	font-size: 0.75em;
-	border-top: 2px solid $white;
+.project-card-cta {
+  @include cta-theme($color: $green);
 }
 
 @media (min-width: 768px) {
-	.col-2 {
-		@include flex($direction: row);
-	}
+  .about-image-wrapper {
+    flex: 0 0 50%;
+    padding-right: 1em;
+    padding-bottom: 0;
+  }
 
-	.col-2 > * {
-		flex: 1;
-	}
+  .about-content {
+    flex: 0 0 50%;
+    padding-left: 1em;
+  }
+}
 
-	.col-2 > *:first-child {
-		padding-right: 1em;
-	}
+@media (min-width: 992px) {
+  .about {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    padding-bottom: 9em;
+  }
 
-	.col-2 > *:last-child {
-		padding-left: 1em;
-	}
+  .project-card-content,
+  .project-card-image {
+    flex: 0 0 50%;
+    padding-bottom: 0;
+  }
+
+  .project-card-content {
+    padding-right: 1em;
+  }
+
+  .project-card-image {
+    padding-left: 1em;
+  }
 }
