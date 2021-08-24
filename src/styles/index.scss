@@ -2,15 +2,15 @@ $black: #17252a;
 $green: #3aafa9;
 $white: #feffff;
 
-%padding-sides {
-	padding-left: 1em;
-	padding-right: 1em;
+%padding {
+	padding: 1em;
 }
 
 %sub-section {
+	width: 100%;
 	max-width: 1200px;
-	margin: auto;
-	@extend %padding-sides;
+	margin: 0 auto;
+	@extend %padding;
 }
 
 %call-to-action {
@@ -20,12 +20,11 @@ $white: #feffff;
 	font-size: 24px;
 	font-weight: 700;
 	height: 50px;
-	line-height: 50px;
+	line-height: 44px;
 	width: 200px;
 	text-align: center;
 	text-decoration: none;
 	background: none;
-	margin-bottom: 1em;
 }
 
 @mixin call-to-action($theme: $white) {
@@ -46,8 +45,7 @@ main {
 }
 
 nav {
-	height: 75px;
-	@extend %padding-sides;
+	@extend %padding;
 	@include flex($direction: row, $justify-content: space-between, $align-items: center);
 }
 
@@ -64,6 +62,7 @@ nav ul {
 section {
 	min-height: 500px;
 	@include flex($direction: column, $justify-content: center);
+	@extend %padding;
 }
 
 section > div {
@@ -95,7 +94,7 @@ section > div {
 }
 
 .project-card {
-	margin-bottom: 2em;
+	margin-bottom: 3em;
 }
 
 .margin-auto {
@@ -103,7 +102,7 @@ section > div {
 }
 
 footer {
-	@extend %padding-sides;
+	@extend %padding;
 }
 
 .social-links {
@@ -125,4 +124,22 @@ footer p {
 	padding-bottom: 1em;
 	font-size: 0.75em;
 	border-top: 2px solid $white;
+}
+
+@media (min-width: 768px) {
+	.col-2 {
+		@include flex($direction: row);
+	}
+
+	.col-2 > * {
+		flex: 1;
+	}
+
+	.col-2 > *:first-child {
+		padding-right: 1em;
+	}
+
+	.col-2 > *:last-child {
+		padding-left: 1em;
+	}
 }

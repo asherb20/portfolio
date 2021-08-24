@@ -43,9 +43,9 @@ const IndexPage = ({ data }) => {
 			<section className='background-green'>
 				<div>
 					<h2 className='text-center'>ABOUT</h2>
-					<div>
+					<div className='col-2'>
 						<div>
-							<StaticImage src='../images/asher_best.jpg' alt='Asher Best' width={768} height={768} />
+							<StaticImage src='../images/asher_best.jpg' alt='Asher Best' width={576} height={576} />
 						</div>
 						<div>
 							<p>
@@ -65,7 +65,7 @@ const IndexPage = ({ data }) => {
 				<div>
 					<h2 className='text-center'>PROJECTS</h2>
 					{data.allContentfulProject.nodes.map(node => (
-						<div key={node.id} className='project-card'>
+						<div key={node.id} className='project-card col-2'>
 							<div>
 								<h3>{node.title}</h3>
 								<p>{node.description.description}</p>
