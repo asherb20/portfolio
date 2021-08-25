@@ -11,7 +11,6 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: $black;
   z-index: 1;
   padding: 1em;
 }
@@ -73,8 +72,7 @@ nav > div {
   font-weight: 500;
 }
 
-section,
-footer {
+section {
   padding: 5em 1em;
 }
 
@@ -244,10 +242,14 @@ footer > div {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+footer {
+  padding: 2.5em 1em;
+}
+
 .footer-social-links {
   list-style-type: none;
   padding: 0;
-  padding-bottom: 1.5em;
+  padding-bottom: 1em;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -262,6 +264,18 @@ footer > div {
   color: $white;
   padding-top: 1em;
   border-top: 2px solid #def2f1;
+}
+
+.footer-scroll-top {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
+.footer-scroll-top > button {
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media (min-width: 768px) {
@@ -312,6 +326,34 @@ footer > div {
   .contact {
     clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
     padding-top: 10em;
+  }
+
+  .nav-bars {
+    display: none;
+  }
+
+  .nav-list-container {
+    display: block;
+    position: relative;
+    background-color: transparent;
+    height: inherit;
+    width: initial;
+  }
+
+  .nav-close {
+    display: none;
+  }
+
+  .nav-list {
+    display: flex;
+  }
+
+  .nav-list li {
+    padding: 0.5em 1em;
+  }
+
+  .nav-list a:hover {
+    text-decoration: underline;
   }
 }
 

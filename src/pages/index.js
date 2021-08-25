@@ -2,36 +2,67 @@ import * as React from 'react';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
-import { Bars, Cross, LinkedIn, GitHub, Email } from '../components/icons';
+import { Bars, Cross, LinkedIn, GitHub, Email, ChevronUp } from '../components/icons';
 import '../styles/index.scss';
 
 const IndexPage = ({ data }) => {
   const [showNavList, setShowNavList] = React.useState(false);
+  const [scrollTop, setScrollTop] = React.useState(false);
+  const [navBackground, setNavBackground] = React.useState('#17252a');
+  const [scrollPosition, setScrollPosition] = React.useState('top');
+
+  React.useEffect(() => {
+    if (scrollTop) {
+      window.scrollTo(0, 0);
+      setScrollTop(false);
+    }
+  }, [scrollTop]);
+
+  React.useEffect(() => {
+    document.addEventListener('scroll', () => {
+      if (window.scrollY === 0 && scrollPosition === 'top') {
+        setNavBackground('#17252a');
+      } else {
+        setScrollPosition('below');
+        setNavBackground('#3aafa9');
+      }
+    });
+  }, [scrollPosition]);
 
   return (
     <main>
-      <nav>
+      <nav style={{ backgroundColor: navBackground }}>
         <div>
           <p className='nav-title'>ASHER BEST</p>
-          <div className='nav-bars' onClick={() => setShowNavList(!showNavList)}>
+          <button className='nav-bars' onClick={() => setShowNavList(true)}>
             <Bars size={35} color='#feffff' />
-          </div>
+          </button>
           <div className={`nav-list-container ${showNavList ? 'show' : 'hide'}`}>
             <div className='nav-close'>
-              <Cross size={35} color='#feffff' />
+              <button onClick={() => setShowNavList(false)}>
+                <Cross size={35} color='#feffff' />
+              </button>
             </div>
             <ul className='nav-list'>
               <li>
-                <a href='/#about'>About</a>
+                <a href='/#about' onClick={() => setShowNavList(false)}>
+                  About
+                </a>
               </li>
               <li>
-                <a href='/#projects'>Projects</a>
+                <a href='/#projects' onClick={() => setShowNavList(false)}>
+                  Projects
+                </a>
               </li>
               <li>
-                <Link to='/blog'>Blog</Link>
+                <Link to='/blog' onClick={() => setShowNavList(false)}>
+                  Blog
+                </Link>
               </li>
               <li>
-                <a href='/#contact'>Contact</a>
+                <a href='/#contact' onClick={() => setShowNavList(false)}>
+                  Contact
+                </a>
               </li>
             </ul>
           </div>
@@ -99,6 +130,11 @@ const IndexPage = ({ data }) => {
       </section>
       <footer>
         <div>
+          <div className='footer-scroll-top'>
+            <button onClick={() => setScrollTop(true)}>
+              <ChevronUp size={25} color='#feffff' />
+            </button>
+          </div>
           <ul className='footer-social-links'>
             <li>
               <a href='https://www.linkedin.com/in/asher-best-16b121191/'>
