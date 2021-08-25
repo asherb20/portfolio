@@ -1,15 +1,14 @@
 import * as React from 'react';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { Link } from 'gatsby';
 import { graphql } from 'gatsby';
-import { Bars, Cross, LinkedIn, GitHub, Email, ChevronUp } from '../components/icons';
+import { Bars, Cross } from '../components/icons';
 import '../styles/index.scss';
+import Footer from '../components/footer';
+import { Helmet } from 'react-helmet';
 
 const IndexPage = ({ data }) => {
   const [showNavList, setShowNavList] = React.useState(false);
   const [scrollTop, setScrollTop] = React.useState(false);
-  const [navBackground, setNavBackground] = React.useState('#17252a');
-  const [scrollPosition, setScrollPosition] = React.useState('top');
 
   React.useEffect(() => {
     if (scrollTop) {
@@ -18,20 +17,13 @@ const IndexPage = ({ data }) => {
     }
   }, [scrollTop]);
 
-  React.useEffect(() => {
-    document.addEventListener('scroll', () => {
-      if (window.scrollY === 0 && scrollPosition === 'top') {
-        setNavBackground('#17252a');
-      } else {
-        setScrollPosition('below');
-        setNavBackground('#3aafa9');
-      }
-    });
-  }, [scrollPosition]);
-
   return (
     <main>
-      <nav style={{ backgroundColor: navBackground }}>
+      <Helmet>
+        <title>Website and Application Development Portfolio | Asher Best</title>
+        <meta name='description' content="Asher Best's Website and Application Development Portfolio" />
+      </Helmet>
+      <nav>
         <div>
           <p className='nav-title'>ASHER BEST</p>
           <button className='nav-bars' onClick={() => setShowNavList(true)}>
@@ -55,11 +47,6 @@ const IndexPage = ({ data }) => {
                 </a>
               </li>
               <li>
-                <Link to='/blog' onClick={() => setShowNavList(false)}>
-                  Blog
-                </Link>
-              </li>
-              <li>
                 <a href='/#contact' onClick={() => setShowNavList(false)}>
                   Contact
                 </a>
@@ -73,7 +60,7 @@ const IndexPage = ({ data }) => {
           <h1 className='section-title'>
             Hi there, my name is <span>Asher Best</span>
             <br />
-            I'm a JAMStack Developer
+            I'm an Application Developer
           </h1>
           <a href='/#about' className='call-to-action hero-cta'>
             Learn More
@@ -89,9 +76,14 @@ const IndexPage = ({ data }) => {
             </div>
             <div className='about-content'>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Hi there and thank you for taking the time to check out my portfolio! My name is Asher Best and I am an Application Developer. I specialize in programming
+                languages such as HTML, CSS, JavaScript and Node.js. Frameworks I work with include React, Next.js and Gatsby. For content management systems, my go-to's are
+                Sanity and Contentful. From concept to completion, I will design and develop a high quality website or application that adequately captures and demonstrates
+                your company's unique vision and brand at an affordable price. My email address is{' '}
+                <a href='mailto:ashermcbest@gmail.com' className='about-email-link'>
+                  ashermcbest@gmail.com
+                </a>
+                . I would love the opportunity to work with you! Let's build something awesome.
               </p>
               <a href='mailto:ashermcbest@gmail.com' className='call-to-action about-cta'>
                 Get In Touch
@@ -108,7 +100,7 @@ const IndexPage = ({ data }) => {
               <div className='project-card-content'>
                 <h3>{node.title}</h3>
                 <p>{node.description.description}</p>
-                <a href={node.siteUrl} className='call-to-action project-card-cta'>
+                <a href={node.siteUrl} className='call-to-action project-card-cta' target='_blank' rel='noopener noreferrer'>
                   See Live
                 </a>
               </div>
@@ -128,33 +120,7 @@ const IndexPage = ({ data }) => {
           </a>
         </div>
       </section>
-      <footer>
-        <div>
-          <div className='footer-scroll-top'>
-            <button onClick={() => setScrollTop(true)}>
-              <ChevronUp size={25} color='#feffff' />
-            </button>
-          </div>
-          <ul className='footer-social-links'>
-            <li>
-              <a href='https://www.linkedin.com/in/asher-best-16b121191/'>
-                <LinkedIn size={50} color='#feffff' />
-              </a>
-            </li>
-            <li>
-              <a href='https://github.com/asherb20'>
-                <GitHub size={50} color='#feffff' />
-              </a>
-            </li>
-            <li>
-              <a href='mailto:ashermcbest@gmail.com'>
-                <Email size={50} circleColor='#feffff' iconColor='#17252A' />
-              </a>
-            </li>
-          </ul>
-          <p className='footer-copyright'>© 2021 - Website designed & developed by Asher Best</p>
-        </div>
-      </footer>
+      <Footer setScrollTop={setScrollTop} />
     </main>
   );
 };

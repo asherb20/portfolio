@@ -13,10 +13,11 @@ nav {
   width: 100%;
   z-index: 1;
   padding: 1em;
+  background-color: $black;
 }
 
 nav > div {
-  max-width: 576px;
+  max-width: 1200px;
   margin: auto;
   display: flex;
   align-items: center;
@@ -163,6 +164,11 @@ footer > div {
   padding-bottom: 1.5em;
 }
 
+.about-email-link {
+  color: $white;
+  text-decoration: underline;
+}
+
 .about-card {
   display: flex;
   flex-wrap: wrap;
@@ -279,8 +285,7 @@ footer {
 }
 
 @media (min-width: 768px) {
-  section > div,
-  nav > div {
+  section > div {
     max-width: 768px;
   }
 
@@ -299,8 +304,7 @@ footer {
 }
 
 @media (min-width: 992px) {
-  section > div,
-  nav > div {
+  section > div {
     max-width: 992px;
   }
 
@@ -358,8 +362,7 @@ footer {
 }
 
 @media (min-width: 1200px) {
-  section > div,
-  nav > div {
+  section > div {
     max-width: 1200px;
   }
 }
