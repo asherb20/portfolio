@@ -17,9 +17,9 @@ module.exports = {
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
-        trackingId: 'GTM-PF9WHM4'
+        id: 'GTM-PF9WHM4'
       }
     },
     'gatsby-plugin-react-helmet',
