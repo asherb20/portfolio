@@ -1,8 +1,8 @@
-require('dotenv').config({ path: './.env.local' });
+require('dotenv').config({ path: './.env.development' });
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://asherbest.dev',
+    siteUrl: 'https://www.asherbest.dev',
     title: 'Portfolio'
   },
   plugins: [
