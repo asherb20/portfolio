@@ -20,12 +20,12 @@ export default function IndexPage({ data }) {
   }, [scrollTop]);
 
   return (
-    <div id={theme}>
+    <div className={theme}>
       <Helmet>
         <title>Asher Best Portfolio | Application Developer</title>
         <meta name='description' content="Asher Best's Website and Application Development Portfolio." />
       </Helmet>
-      <Nav showNavList={showNavList} setShowNavList={setShowNavList} />
+      <Nav theme={theme} setTheme={setTheme} showNavList={showNavList} setShowNavList={setShowNavList} />
       <main>
         <section className='hero-section'>
           <div>
@@ -85,7 +85,7 @@ export default function IndexPage({ data }) {
           </div>
         </section>
       </main>
-      <Footer setScrollTop={setScrollTop} />
+      <Footer theme={theme} setScrollTop={setScrollTop} />
     </div>
   );
 }

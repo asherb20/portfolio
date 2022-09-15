@@ -2,8 +2,8 @@ import * as React from 'react';
 
 export const Bars = ({ size, color }) => {
   return (
-    <svg height={size} width={size} viewBox='-125 75 1024 768' xmlns='http://www.w3.org/2000/svg'>
-      <path fill={color} d='M0 192v128h768v-128h-768z m0 384h768v-128h-768v128z m0 256h768v-128h-768v128z' />
+    <svg height={size} width={size} fill={color} viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' />
     </svg>
   );
 };
@@ -73,6 +73,52 @@ export const ChevronUp = ({ size, color }) => {
         fill={color}
         d='M256,213.7L256,213.7L256,213.7l174.2,167.2c4.3,4.2,11.4,4.1,15.8-0.2l30.6-29.9c4.4-4.3,4.5-11.3,0.2-15.5L264.1,131.1  c-2.2-2.2-5.2-3.2-8.1-3c-3-0.1-5.9,0.9-8.1,3L35.2,335.3c-4.3,4.2-4.2,11.2,0.2,15.5L66,380.7c4.4,4.3,11.5,4.4,15.8,0.2L256,213.7  z'
       />
+    </svg>
+  );
+};
+
+export const Sun = ({ size, color }) => {
+  return (
+    <svg
+      class='feather feather-sun'
+      fill='none'
+      height={size}
+      stroke={color}
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      stroke-width='2'
+      viewBox='0 0 24 24'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <circle cx='12' cy='12' r='5' />
+      <line x1='12' x2='12' y1='1' y2='3' />
+      <line x1='12' x2='12' y1='21' y2='23' />
+      <line x1='4.22' x2='5.64' y1='4.22' y2='5.64' />
+      <line x1='18.36' x2='19.78' y1='18.36' y2='19.78' />
+      <line x1='1' x2='3' y1='12' y2='12' />
+      <line x1='21' x2='23' y1='12' y2='12' />
+      <line x1='4.22' x2='5.64' y1='19.78' y2='18.36' />
+      <line x1='18.36' x2='19.78' y1='5.64' y2='4.22' />
+    </svg>
+  );
+};
+
+export const Moon = ({ size, color }) => {
+  return (
+    <svg
+      class='feather feather-moon'
+      fill='none'
+      height={size}
+      stroke={color}
+      stroke-linecap='round'
+      stroke-linejoin='round'
+      stroke-width='2'
+      viewBox='0 0 24 24'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z' />
     </svg>
   );
 };

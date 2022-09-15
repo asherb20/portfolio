@@ -20,18 +20,18 @@ $darkgreen: #2b7a78;
 }
 
 // theme
-#dark {
+.dark {
   background-color: $black;
   color: $white;
 }
-#dark a {
+.dark a {
   color: $white;
 }
-#light {
+.light {
   background-color: $white;
   color: $black;
 }
-#light a {
+.light a {
   color: $black;
 }
 
@@ -42,7 +42,12 @@ nav {
   width: 100%;
   z-index: 1;
   padding: 1em;
+}
+.nav-dark {
   background-color: $black;
+}
+.nav-light {
+  background-color: $white;
 }
 nav > div {
   max-width: 1200px;
@@ -54,8 +59,22 @@ nav > div {
 .nav-title {
   font-weight: 700;
 }
+.nav-col-right {
+  display: flex;
+  align-items: center;
+}
+.nav-btns {
+  display: flex;
+}
+.nav-btns button {
+  padding: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
 .nav-bars {
-  cursor: pointer;
+  margin-left: 1em;
 }
 .nav-hide {
   right: -280px;
@@ -79,6 +98,13 @@ nav > div {
   display: flex;
   justify-content: flex-end;
 }
+.nav-close button {
+  padding: .5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
 .nav-list {
   list-style-type: none;
   padding: 0;
@@ -91,10 +117,11 @@ nav > div {
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
+  color: $white;
 }
 @media (min-width: 992px) {
   .nav-bars {
-    display: none;
+    display: none !important;
   }
   .nav-list-container {
     display: block;
@@ -112,6 +139,9 @@ nav > div {
   }
   .nav-list li {
     padding: 0.5em 1em;
+  }
+  .nav-link-light {
+    color: $black !important;
   }
   .nav-list a:hover {
     color: $green !important;
@@ -141,6 +171,7 @@ section > div {
 }
 .about-section {
   background-color: $green;
+  color: $white;
 }
 .about-title {
   text-align: center;
@@ -163,6 +194,9 @@ section > div {
   justify-content: center;
   max-width: 350px;
   margin: auto;
+}
+.about-content a {
+  color: $white;
 }
 .about-content p {
   padding-bottom: 1.5em;
@@ -194,13 +228,14 @@ section > div {
 }
 .contact-section {
   background-color: $green;
+  color: $white;
   text-align: center;
 }
 .contact-title {
   letter-spacing: 4px;
   padding-bottom: 0.5em !important;
 }
-.contact-section  a {
+.contact-section a {
   margin: 0 auto;
 }
 .contact-section p {
@@ -266,11 +301,11 @@ section > div {
   background-color: $green;
   transition: 0.3s ease-in-out;
 }
-#dark .cta-green:hover {
+.dark .cta-green:hover {
   color: $black !important;
   transition: 0.3s ease-in-out;
 }
-#light .cta-green:hover {
+.light .cta-green:hover {
   color: $white !important;
   transition: 0.3s ease-in-out;
 }
@@ -305,7 +340,6 @@ footer > div {
 }
 .footer-copyright {
   text-align: center;
-  color: $white;
   padding-top: 1em;
   border-top: 2px solid #def2f1;
 }
@@ -315,7 +349,6 @@ footer > div {
   padding-bottom: 1em;
 }
 .footer-scroll-top > button {
-  color: $white;
   font-size: 16px;
   font-weight: 500;
 }
