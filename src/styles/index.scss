@@ -1,12 +1,41 @@
+// colors
 $black: #17252a;
 $green: #3aafa9;
 $white: #feffff;
 $darkgreen: #2b7a78;
 
-main {
-  background-color: $black;
+// scrollbar
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track {
+  background: $white;
+}
+::-webkit-scrollbar-thumb {
+  background: $green;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: $darkgreen;
+  transition: .3s ease-in-out;
 }
 
+// theme
+#dark {
+  background-color: $black;
+  color: $white;
+}
+#dark a {
+  color: $white;
+}
+#light {
+  background-color: $white;
+  color: $black;
+}
+#light a {
+  color: $black;
+}
+
+// nav
 nav {
   position: fixed;
   top: 0;
@@ -15,7 +44,6 @@ nav {
   padding: 1em;
   background-color: $black;
 }
-
 nav > div {
   max-width: 1200px;
   margin: auto;
@@ -23,92 +51,202 @@ nav > div {
   align-items: center;
   justify-content: space-between;
 }
-
 .nav-title {
   font-weight: 700;
-  color: $white;
 }
-
 .nav-bars {
   cursor: pointer;
 }
-
-.hide {
-  display: none;
+.nav-hide {
+  right: -280px;
+  transition: .3s;
 }
-
-.show {
-  display: block;
+.nav-show {
+  right: 0 !important;
+  transition: .3s;
 }
-
 .nav-list-container {
   position: fixed;
   background-color: $darkgreen;
   width: 280px;
   top: 0;
-  right: 0;
+  right: -280px;
   height: 100vh;
+  transition: .3s;
 }
-
 .nav-close {
   padding: 1em;
   display: flex;
   justify-content: flex-end;
 }
-
 .nav-list {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 .nav-list li {
   padding: 0.5em 2em;
 }
-
 .nav-list a {
-  color: $white;
   text-decoration: none;
   font-size: 20px;
   font-weight: 500;
 }
-
-main {
-  scroll-behavior: smooth;
+@media (min-width: 992px) {
+  .nav-bars {
+    display: none;
+  }
+  .nav-list-container {
+    display: block;
+    position: relative;
+    background-color: transparent;
+    height: inherit;
+    width: initial;
+    right: 0;
+  }
+  .nav-close {
+    display: none;
+  }
+  .nav-list {
+    display: flex;
+  }
+  .nav-list li {
+    padding: 0.5em 1em;
+  }
+  .nav-list a:hover {
+    color: $green !important;
+    transition: .3s ease-in-out;
+  }
 }
 
+// sections
 section {
   padding: 5em 1em;
 }
-
-section > div,
-footer > div {
-  max-width: 576px;
+section > div {
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
-
-.hero {
+.hero-section {
   height: 100vh;
   display: flex;
   align-items: center;
-  color: $white;
 }
-
 .section-title {
   padding-bottom: 1em;
 }
-
 .section-title span {
   color: $green;
 }
-
-@mixin cta-theme($color: $green) {
-  border-color: $color;
-  color: $color;
+.about-section {
+  background-color: $green;
+}
+.about-title {
+  text-align: center;
+  letter-spacing: 4px;
+}
+.about-card {
+  padding-top: 2.5em;
+  padding-bottom: 2.5em;
+}
+.about-image-wrapper {
+  padding-bottom: 2.5em;
+  display: flex;
+  justify-content: center;
+  flex: 0 0 100%;
+}
+.about-content {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 350px;
+  margin: auto;
+}
+.about-content p {
+  padding-bottom: 1.5em;
+}
+.about-email-link {
+  text-decoration: underline;
+}
+.about-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+.projects-title {
+  text-align: center;
+  letter-spacing: 4px;
+}
+.project-card {
+  padding: 2.5em 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.project-card-content {
+  padding-bottom: 2.5em;
+}
+.project-card-content h3 {
+  padding-bottom: 1em;
+}
+.project-card-content p {
+  padding-bottom: 1.5em;
+}
+.contact-section {
+  background-color: $green;
+  text-align: center;
+}
+.contact-title {
+  letter-spacing: 4px;
+  padding-bottom: 0.5em !important;
+}
+.contact-section  a {
+  margin: 0 auto;
+}
+.contact-section p {
+  padding-bottom: 1em;
+}
+@media (min-width: 768px) {
+  .about-image-wrapper {
+    flex: 0 0 50%;
+    padding-right: 1em;
+    padding-bottom: 0;
+  }
+  .about-content {
+    flex: 0 0 50%;
+    padding-left: 1em;
+    max-width: initial;
+    margin: 0;
+  }
+  .project-card-content,
+  .project-card-image {
+    flex: 0 0 50%;
+    padding-bottom: 0;
+  }
+  .project-card-content {
+    padding-right: 1em;
+  }
+  .project-card-image {
+    padding-left: 1em;
+  }
+}
+@media (min-width: 992px) {
+  .about-section {
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+    padding-bottom: 10em;
+  }
+  .contact-section {
+    clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
+    padding-top: 10em;
+  }
 }
 
-.call-to-action {
+// call to action
+@mixin cta-theme($color: $green) {
+  border-color: $color;
+  color: $color !important;
+}
+.cta {
   display: block;
   max-width: 200px;
   height: 50px;
@@ -120,142 +258,40 @@ footer > div {
   font-weight: 700;
   text-decoration: none;
 }
-
-.hero-cta {
+.cta-green {
   @include cta-theme($color: $green);
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-.hero-cta:hover {
+.cta-green:hover {
   background-color: $green;
-  color: $black;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
-
-.about {
-  background-color: $green;
-  color: $white;
+#dark .cta-green:hover {
+  color: $black !important;
+  transition: 0.3s ease-in-out;
 }
-
-.about-title {
-  text-align: center;
-  letter-spacing: 4px;
+#light .cta-green:hover {
+  color: $white !important;
+  transition: 0.3s ease-in-out;
 }
-
-.about-card {
-  padding-top: 2.5em;
-  padding-bottom: 2.5em;
-}
-
-.about-image-wrapper {
-  padding-bottom: 2.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 100%;
-}
-
-.about-content {
-  flex: 0 0 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 350px;
-  margin: auto;
-}
-
-.about-content p {
-  padding-bottom: 1.5em;
-}
-
-.about-email-link {
-  color: $white;
-  text-decoration: underline;
-}
-
-.about-card {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.about-cta {
+.cta-white {
   @include cta-theme($color: $white);
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-.about-cta:hover {
+.cta-white:hover {
   background-color: $white;
-  color: $green;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  color: $green !important;
+  transition: 0.3s ease-in-out;
 }
 
-.projects-title {
-  color: $white;
-  text-align: center;
-  letter-spacing: 4px;
-}
-
-.project-card {
-  color: $white;
-  padding: 2.5em 0;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.project-card-content {
-  padding-bottom: 2.5em;
-}
-
-.project-card-content h3 {
-  padding-bottom: 1em;
-}
-
-.project-card-content p {
-  padding-bottom: 1.5em;
-}
-
-.project-card-cta {
-  @include cta-theme($color: $green);
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.project-card-cta:hover {
-  background-color: $green;
-  color: $black;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.contact {
-  background-color: $green;
-  color: $white;
-  text-align: center;
-}
-
-.contact-title {
-  letter-spacing: 4px;
-  padding-bottom: 0.5em !important;
-}
-
-.contact p {
-  padding-bottom: 1em;
-}
-
-.contact-cta {
-  @include cta-theme($color: $white);
-  margin: auto;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-.contact-cta:hover {
-  background-color: $white;
-  color: $green;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
+// footer
 footer {
   padding: 2.5em 1em;
 }
-
+footer > div {
+  max-width: 576px;
+  margin: 0 auto;
+}
 .footer-social-links {
   list-style-type: none;
   padding: 0;
@@ -264,109 +300,22 @@ footer {
   display: flex;
   justify-content: center;
 }
-
 .footer-social-links a {
   padding: 0 0.5em;
 }
-
 .footer-copyright {
   text-align: center;
   color: $white;
   padding-top: 1em;
   border-top: 2px solid #def2f1;
 }
-
 .footer-scroll-top {
   display: flex;
   justify-content: center;
   padding-bottom: 1em;
 }
-
 .footer-scroll-top > button {
   color: $white;
   font-size: 16px;
   font-weight: 500;
-}
-
-@media (min-width: 768px) {
-  section > div {
-    max-width: 768px;
-  }
-
-  .about-image-wrapper {
-    flex: 0 0 50%;
-    padding-right: 1em;
-    padding-bottom: 0;
-  }
-
-  .about-content {
-    flex: 0 0 50%;
-    padding-left: 1em;
-    max-width: initial;
-    margin: 0;
-  }
-}
-
-@media (min-width: 992px) {
-  section > div {
-    max-width: 992px;
-  }
-
-  .about {
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
-    padding-bottom: 10em;
-  }
-
-  .project-card-content,
-  .project-card-image {
-    flex: 0 0 50%;
-    padding-bottom: 0;
-  }
-
-  .project-card-content {
-    padding-right: 1em;
-  }
-
-  .project-card-image {
-    padding-left: 1em;
-  }
-
-  .contact {
-    clip-path: polygon(0 15vh, 100% 0, 100% 100%, 0 100%);
-    padding-top: 10em;
-  }
-
-  .nav-bars {
-    display: none;
-  }
-
-  .nav-list-container {
-    display: block;
-    position: relative;
-    background-color: transparent;
-    height: inherit;
-    width: initial;
-  }
-
-  .nav-close {
-    display: none;
-  }
-
-  .nav-list {
-    display: flex;
-  }
-
-  .nav-list li {
-    padding: 0.5em 1em;
-  }
-
-  .nav-list a:hover {
-    text-decoration: underline;
-  }
-}
-
-@media (min-width: 1200px) {
-  section > div {
-    max-width: 1200px;
-  }
 }

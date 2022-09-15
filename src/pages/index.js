@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -7,9 +7,10 @@ import Nav from '../components/nav';
 import Footer from '../components/footer';
 import CallToAction from '../components/callToAction';
 
-const IndexPage = ({ data }) => {
-  const [showNavList, setShowNavList] = React.useState(false);
-  const [scrollTop, setScrollTop] = React.useState(false);
+export default function IndexPage({ data }) {
+  const [showNavList, setShowNavList] = useState(false);
+  const [scrollTop, setScrollTop] = useState(false);
+  const [theme, setTheme] = useState('dark');
 
   React.useEffect(() => {
     if (scrollTop) {
@@ -19,24 +20,24 @@ const IndexPage = ({ data }) => {
   }, [scrollTop]);
 
   return (
-    <main>
+    <div id={theme}>
       <Helmet>
         <title>Asher Best Portfolio | Application Developer</title>
         <meta name='description' content="Asher Best's Website and Application Development Portfolio." />
       </Helmet>
       <Nav showNavList={showNavList} setShowNavList={setShowNavList} />
       <main>
-        <section className='hero'>
+        <section className='hero-section'>
           <div>
             <h1 className='section-title'>
               Hi there, my name is <span>Asher Best</span>
               <br />
               I'm an Application Developer
             </h1>
-            <CallToAction href='/#about' text='Learn More' className='call-to-action hero-cta' />
+            <CallToAction href='/#about' text='Learn More' className='cta cta-green' />
           </div>
         </section>
-        <section id='about' className='about'>
+        <section id='about' className='about-section'>
           <div>
             <h2 className='section-title about-title'>ABOUT ME</h2>
             <div className='about-card'>
@@ -54,7 +55,7 @@ const IndexPage = ({ data }) => {
                   </a>
                   . I would love the opportunity to work with you! Let's build something awesome.
                 </p>
-                <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' className='call-to-action about-cta' />
+                <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' className='cta cta-white' />
               </div>
             </div>
           </div>
@@ -67,7 +68,7 @@ const IndexPage = ({ data }) => {
                 <div className='project-card-content'>
                   <h3>{node.title}</h3>
                   <p>{node.description.description}</p>
-                  <CallToAction href={node.siteUrl} text='See Live' className='call-to-action project-card-cta' target='_blank' rel='noopener noreferrer' />
+                  <CallToAction href={node.siteUrl} text='See Live' className='cta cta-green' target='_blank' rel='noopener noreferrer' />
                 </div>
                 <div className='project-card-image'>
                   <GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
@@ -76,18 +77,18 @@ const IndexPage = ({ data }) => {
             ))}
           </div>
         </section>
-        <section id='contact' className='contact'>
+        <section id='contact' className='contact-section'>
           <div>
             <h2 className='section-title contact-title'>CONTACT</h2>
             <p>Would you like to work with me? Awesome!</p>
-            <CallToAction href='mailto:ashermcbest@gmail.com' text="Let's Talk" className='call-to-action contact-cta' />
+            <CallToAction href='mailto:ashermcbest@gmail.com' text="Let's Talk" className='cta cta-white' />
           </div>
         </section>
       </main>
       <Footer setScrollTop={setScrollTop} />
-    </main>
+    </div>
   );
-};
+}
 
 export const query = graphql`
   query IndexQuery {
@@ -108,5 +109,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default IndexPage;
