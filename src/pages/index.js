@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { LayoutContext } from '../context/LayoutContext';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
 import { graphql } from 'gatsby';
 import { Helmet } from 'react-helmet';
@@ -7,17 +8,8 @@ import Nav from '../components/nav';
 import Footer from '../components/footer';
 import CallToAction from '../components/callToAction';
 
-export default function IndexPage({ data }) {
-  const [showNavList, setShowNavList] = useState(false);
-  const [scrollTop, setScrollTop] = useState(false);
-  const [theme, setTheme] = useState('dark');
-
-  React.useEffect(() => {
-    if (scrollTop) {
-      window.scrollTo(0, 0);
-      setScrollTop(false);
-    }
-  }, [scrollTop]);
+export default function Index({ data }) {
+  const { theme } = useContext(LayoutContext);
 
   return (
     <div className={theme}>
@@ -25,7 +17,7 @@ export default function IndexPage({ data }) {
         <title>Asher Best Portfolio | Application Developer</title>
         <meta name='description' content="Asher Best's Website and Application Development Portfolio." />
       </Helmet>
-      <Nav theme={theme} setTheme={setTheme} showNavList={showNavList} setShowNavList={setShowNavList} />
+      <Nav />
       <main>
         <section className='hero-section'>
           <div>
@@ -85,12 +77,12 @@ export default function IndexPage({ data }) {
           </div>
         </section>
       </main>
-      <Footer theme={theme} setScrollTop={setScrollTop} />
+      <Footer />
     </div>
   );
 }
 
-export const query = graphql`
+export const indexQuery = graphql`
   query IndexQuery {
     allContentfulProject {
       nodes {

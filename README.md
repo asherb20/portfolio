@@ -3,8 +3,8 @@
 ## Roadmap
 
 - [ ] Contact Form
-- [ ] Blog
+- [ ] Blog Page
 - [ ] Transition Scroll
-- [ ] Light/Dark Mode
+- [x] Light/Dark Mode
 - [x] Project Desktop/Mobile Preview
 - [ ] Project Carousel

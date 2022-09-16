@@ -1,9 +1,13 @@
-import * as React from 'react';
+import React, { useContext } from 'react';
+import { LayoutContext } from '../context/LayoutContext';
 import { LinkedIn, GitHub, Email, ChevronUp } from './icons';
 import '../styles/index.scss';
 
-export default function Footer({ theme, setScrollTop }) {
+export default function Footer() {
+  const { theme, setScrollTop } = useContext(LayoutContext);
+
   const color = theme === 'dark' ? '#feffff' : '#17252a';
+
   const LINKS = [
     { key: 'linkedin', href: 'https://www.linkedin.com/in/asher-best-16b121191/', icon: <LinkedIn size={50} color={color} /> },
     { key: 'github', href: 'https://github.com/asherb20', icon: <GitHub size={50} color={color} /> },
