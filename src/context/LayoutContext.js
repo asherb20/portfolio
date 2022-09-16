@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useEffect } from 'react';
+import React, { createContext, useReducer } from 'react';
 
 export const LayoutContext = createContext();
 
@@ -29,13 +29,6 @@ export default function LayoutState({ children }) {
   const setDrawerVisible = drawerVisible => dispatch({ type: 'SET_DRAWER_VISIBLE', payload: drawerVisible });
 
   const setScrollTop = scrollTop => dispatch({ type: 'SET_SCROLL_TOP', payload: scrollTop });
-
-  useEffect(() => {
-    if (state.scrollTop) {
-      window.scrollTo(0, 0);
-      setScrollTop(false);
-    }
-  }, []);
 
   return <LayoutContext.Provider value={{ ...state, setTheme, setDrawerVisible, setScrollTop }}>{children}</LayoutContext.Provider>;
 }

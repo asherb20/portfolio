@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { LayoutContext } from '../context/LayoutContext';
 import { Bars, Cross, Sun, Moon } from './icons';
+import '../styles/nav.scss';
 
 const NAV_LIST_LINKS = [
   { href: '/', text: 'Home' },
@@ -13,29 +14,30 @@ const NAV_LIST_LINKS = [
 export default function Nav() {
   const { theme, setTheme, drawerVisible, setDrawerVisible } = useContext(LayoutContext);
 
+  const iconColor = theme === 'dark' ? '#feffff' : '#17252a';
+  const themeBtnIcon = theme === 'dark' ? <Sun size={20} color={iconColor} /> : <Moon size={20} color={iconColor} />;
+
   return (
-    <nav className={`nav-${theme}`}>
+    <nav className={`theme-${theme}`}>
       <div>
-        <p className='nav-title'>ASHER BEST</p>
-        <div className='nav-col-right'>
-          <div className='nav-btns'>
-            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>
-              {theme === 'dark' ? <Sun size={20} color='#feffff' /> : <Moon size={20} color='#17252a' />}
-            </button>
-            <button className='nav-bars' onClick={() => setDrawerVisible(true)}>
-              <Bars size={25} color={theme === 'dark' ? '#feffff' : '#17252a'} />
+        <p className='title'>ASHER BEST</p>
+        <div className='col-right'>
+          <div className='btns'>
+            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}>{themeBtnIcon}</button>
+            <button className='bars' onClick={() => setDrawerVisible(true)}>
+              <Bars size={25} color={iconColor} />
             </button>
           </div>
-          <div className={`nav-list-container ${drawerVisible ? 'nav-show' : 'nav-hide'}`}>
-            <div className='nav-close'>
+          <div className={`list-container ${drawerVisible ? 'show' : 'hide'}`}>
+            <div className='close'>
               <button onClick={() => setDrawerVisible(false)}>
                 <Cross size={30} color='#feffff' />
               </button>
             </div>
-            <ul className='nav-list'>
+            <ul className='list'>
               {NAV_LIST_LINKS.map(link => (
                 <li key={link.href}>
-                  <a href={link.href} className={`nav-link-${theme}`} onClick={() => setDrawerVisible(false)}>
+                  <a href={link.href} className={`link-${theme}`} onClick={() => setDrawerVisible(false)}>
                     {link.text}
                   </a>
                 </li>
