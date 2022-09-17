@@ -1,0 +1,92 @@
+.container {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: #17252a;
+}
+.container > div {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+.title {
+  font-weight: bold;
+}
+.column {
+  display: flex;
+  align-items: center;
+}
+.column > button {
+  display: flex;
+  padding: 0;
+}
+.drawer {
+  position: fixed;
+  background-color: #2b7a78;
+  width: 280px;
+  top: 0;
+  right: -280px;
+  height: 100vh;
+  transition: .3s;
+  padding: 1em;
+}
+.drawerShow {
+  right: 0 !important;
+  transition: .3s;
+}
+.drawerHide {
+  right: -280px;
+  transition: .3s;
+}
+.drawer > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.drawer button {
+  padding: 0;
+  display: flex;
+}
+.drawer > ul {
+  list-style-type: none;
+  padding: .5em 1em;
+  margin: 0;
+}
+.drawer li {
+  padding: .5em 0;
+}
+.drawer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #feffff;
+}
+@media (min-width: 992px) {
+  .column > button {
+    display: none;
+  }
+  .drawer {
+    display: block;
+    position: relative;
+    background-color: transparent;
+    height: inherit;
+    width: initial;
+    right: 0;
+    padding: 0;
+  }
+  .drawer > div {
+    display: none;
+  }
+  .drawer > ul {
+    display: flex;
+    padding: 0;
+  }
+  .drawer li {
+    padding: 0.5em 1em;
+  }
+  .drawer a:hover {
+    color: #3aafa9 !important;
+    transition: .3s ease-in-out;
+  }
+}

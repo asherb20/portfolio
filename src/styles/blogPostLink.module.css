@@ -1,0 +1,24 @@
+.container {
+  flex: 0 0 100%;
+  cursor: pointer;
+  text-decoration: none;
+  color: #feffff;
+  padding: 1em 0;
+}
+.image {
+  border-radius: .25em;
+}
+.container h4 {
+  color: #3aafa9;
+  font-weight: bold;
+}
+@media(min-width: 768px) {
+  .container {
+    flex: 0 0 49%;
+  }
+}
+@media(min-width: 1200px) {
+  .container {
+    flex: 0 0 32%;
+  }
+}

@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  margin: 2em 0;
+}
+@media(min-width: 768px) {
+  .container {
+    flex-direction: row;
+  }
+  .column {
+    flex: 0 0 50%;
+  }
+  .column:first-child {
+    padding-right: 1em;
+  }
+  .column:last-child {
+    padding-left: 1em;
+  }
+}
