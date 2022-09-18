@@ -1,0 +1,23 @@
+.section > div {
+  max-width: 768px;
+  margin: 10em auto;
+}
+.section h1 {
+  text-align: center;
+}
+.description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.description > div {
+  border-radius: 100%;
+  width: 48px;
+  height: 48px;
+}
+.description > p {
+  padding-left: .5em;
+}
+.thumbnail {
+  border-radius: .25em;
+}

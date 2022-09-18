@@ -7,7 +7,7 @@ export default function BlogPostLink({ imageData, imageTitle, category, title, s
   return (
     <Link className={styles.container} to={`/blog/${slug}`}>
       <GatsbyImage className={styles.image} image={getImage(imageData)} alt={imageTitle} />
-      <h4>{category}</h4>
+      <p>{category.toUpperCase()}</p>
       <h3>{title}</h3>
     </Link>
   );

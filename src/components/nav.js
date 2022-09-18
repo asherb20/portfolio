@@ -5,9 +5,9 @@ import * as styles from '../styles/nav.module.css';
 
 const NAV_LIST_LINKS = [
   { to: '/', text: 'Home' },
-  { to: '/#about', text: 'About' },
-  { to: '/#projects', text: 'Projects' },
-  { to: '/#contact', text: 'Contact' },
+  { to: '/about', text: 'About' },
+  { to: '/programming', text: 'Programming' },
+  { to: '/music', text: 'Music' },
   { to: '/blog', text: 'Blog' }
 ];
 

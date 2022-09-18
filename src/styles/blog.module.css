@@ -6,5 +6,27 @@
 .columns {
   display: flex;
   flex-wrap: wrap;
-  column-gap: 1em;
+  column-gap: 2em;
+}
+.section h1,
+.section h2 {
+  letter-spacing: .25em;
+}
+.divider {
+  border: 1px solid #feffff;
+}
+.button {
+  border: .25em solid #3aafa9;
+  border-radius: 1em;
+  padding: .5em 1em;
+  color: #3aafa9;
+  font-weight: bold;
+  margin-right: 1em;
+  margin-bottom: 1em;
+  letter-spacing: .25em;
+  transition: .3s ease-in-out;
+}
+.active {
+  background-color: #3aafa9;
+  color: #17252a;
 }

@@ -1,17 +1,21 @@
 exports.createPages = async function ({ actions, graphql }) {
   const { data } = await graphql(`
-    query {
+    query BlogPostQuery {
       allContentfulBlogPost {
         nodes {
           id
           slug
           author {
             name
+            photo {
+              gatsbyImageData(width: 64, height: 64)
+              title
+            }
           }
           content {
             raw
           }
-          createdAt
+          createdAt(formatString: "LL")
           thumbnail {
             title
             gatsbyImageData

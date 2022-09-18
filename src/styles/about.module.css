@@ -1,0 +1,51 @@
+.section > div {
+  max-width: 1200px;
+  margin: 10em auto;
+  padding: 0 1em;
+}
+.section h1,
+.section h2 {
+  letter-spacing: .25em;
+}
+.section a {
+  color: #3aafa9;
+  text-decoration: none;
+}
+.divider {
+  border: 1px solid #feffff;
+}
+.columns {
+  display: flex;
+  flex-direction: column;
+}
+.image {
+  margin: 2em 0;
+  border-radius: .25em;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2em;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.row a {
+  font-weight: bold;
+}
+@media(min-width: 768px) {
+  .columns {
+    flex-direction: row;
+  }
+  .column {
+    flex: 0 0 50%;
+  }
+  .column:first-child {
+    padding-right: 1em;
+  }
+  .column:last-child {
+    padding-left: 1em;
+  }
+}

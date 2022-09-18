@@ -17,11 +17,11 @@
 }
 .green {
   border-color: #3aafa9;
-  color: #3aafa9;
+  color: #3aafa9 !important;
 }
 .green:hover {
   background-color: #3aafa9;
-  color: #17252a;
+  color: #17252a !important;
 }
 .white {
   border-color: #feffff;
