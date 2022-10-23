@@ -1,8 +1,8 @@
-require('dotenv').config({ path: './.env.development' });
+if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: './.env.development' });
 
 module.exports = {
   siteMetadata: {
-    siteUrl: 'https://www.asherbest.dev',
+    siteUrl: 'https://www.asherbest.com',
     title: 'Portfolio'
   },
   plugins: [

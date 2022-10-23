@@ -2,9 +2,11 @@
 
 ## Roadmap
 
+- [x] About Page
+- [x] Programming Page
+- [x] Music Page
 - [ ] Contact Form
-- [ ] Blog
-- [ ] Transition Scroll
-- [ ] Light/Dark Mode
+- [x] Blog Page
+- [x] Blog Post Page
 - [x] Project Desktop/Mobile Preview
-- [ ] Project Carousel
+- [ ] Transition Scroll

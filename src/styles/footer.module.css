@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1em;
+}
+.container > ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+.container li {
+  padding: 0 .5em;
+}
+.container p {
+  border-top: .05em solid #feffff;
+  padding: 1em 0;
+  margin: 0;
+  text-align: center;
+}

@@ -1,40 +1,21 @@
 import * as React from 'react';
-import { Link } from 'gatsby';
-import Footer from '../components/footer';
-import { Helmet } from 'react-helmet';
+import Layout from '../components/layout';
+import CallToAction from '../components/callToAction';
+import * as styles from '../styles/index.module.css';
 
-// markup
-const NotFoundPage = () => {
-  const [scrollTop, setScrollTop] = React.useState(false);
-
-  React.useEffect(() => {
-    if (scrollTop) {
-      window.scrollTo(0, 0);
-      setScrollTop(false);
-    }
-  }, [scrollTop]);
-
+export default function NotFound() {
   return (
-    <main>
-      <Helmet>
-        <title>Website and Application Development Portfolio | Asher Best</title>
-        <meta name='description' content="Asher Best's Website and Application Development Portfolio" />
-      </Helmet>
-      <section className='hero'>
+    <Layout title='Page Not Found | Asher Best' description='The page you are looking for does not exist or has been moved.'>
+      <section className={styles.section}>
         <div>
-          <h1 className='section-title'>
-            404 | Page <span>Not Found</span>
+          <h1>
+            <span>404</span> Page Not Found
             <br />
             This page does not exist.
           </h1>
-          <Link to='/' className='call-to-action hero-cta'>
-            Return Home
-          </Link>
+          <CallToAction href='/' text='Go Home' />
         </div>
       </section>
-      <Footer setScrollTop={setScrollTop} />
-    </main>
+    </Layout>
   );
-};
-
-export default NotFoundPage;
+}

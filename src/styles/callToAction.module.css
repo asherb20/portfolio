@@ -1,0 +1,33 @@
+.container {
+  display: block;
+  width: 200px;
+  height: 50px;
+  line-height: 40px;
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  background-color: transparent;
+}
+.center {
+  margin: 0 auto;
+}
+.green {
+  border-color: #3aafa9;
+  color: #3aafa9 !important;
+}
+.green:hover {
+  background-color: #3aafa9;
+  color: #17252a !important;
+}
+.white {
+  border-color: #feffff;
+  color: #feffff;
+}
+.white:hover {
+  background-color: #feffff;
+  color: #3aafa9;
+}

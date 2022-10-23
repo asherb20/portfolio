@@ -1,107 +1,108 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { graphql } from 'gatsby';
-import { Helmet } from 'react-helmet';
-import '../styles/index.scss';
-import Nav from '../components/nav';
-import Footer from '../components/footer';
+import { graphql, Link } from 'gatsby';
 import CallToAction from '../components/callToAction';
+import Layout from '../components/layout';
+import * as styles from '../styles/index.module.css';
+import Carousel from '../components/carousel';
 
-export default function IndexPage({ data }) {
-  const [showNavList, setShowNavList] = useState(false);
-  const [scrollTop, setScrollTop] = useState(false);
-  const [theme, setTheme] = useState('dark');
-
-  React.useEffect(() => {
-    if (scrollTop) {
-      window.scrollTo(0, 0);
-      setScrollTop(false);
-    }
-  }, [scrollTop]);
-
+export default function Index({ data }) {
   return (
-    <div className={theme}>
-      <Helmet>
-        <title>Asher Best Portfolio | Application Developer</title>
-        <meta name='description' content="Asher Best's Website and Application Development Portfolio." />
-      </Helmet>
-      <Nav theme={theme} setTheme={setTheme} showNavList={showNavList} setShowNavList={setShowNavList} />
-      <main>
-        <section className='hero-section'>
-          <div>
-            <h1 className='section-title'>
-              Hi there, my name is <span>Asher Best</span>
-              <br />
-              I'm an Application Developer
-            </h1>
-            <CallToAction href='/#about' text='Learn More' className='cta cta-green' />
-          </div>
-        </section>
-        <section id='about' className='about-section'>
-          <div>
-            <h2 className='section-title about-title'>ABOUT ME</h2>
-            <div className='about-card'>
-              <div className='about-image-wrapper'>
-                <StaticImage src='../images/asher_best.jpg' alt='Asher Best' width={350} height={350} />
-              </div>
-              <div className='about-content'>
-                <p>
-                  Hi there and thank you for taking the time to check out my portfolio! My name is Asher Best and I am an Application Developer. I specialize in programming
-                  languages such as HTML, CSS, JavaScript and Node.js. Frameworks I work with include React, Next.js and Gatsby. For content management systems, my go-to's are
-                  Sanity and Contentful. From concept to completion, I will design and develop a high quality website or application that adequately captures and demonstrates
-                  your company's unique vision and brand at an affordable price. My email address is{' '}
-                  <a href='mailto:ashermcbest@gmail.com' className='about-email-link'>
-                    ashermcbest@gmail.com
-                  </a>
-                  . I would love the opportunity to work with you! Let's build something awesome.
-                </p>
-                <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' className='cta cta-white' />
-              </div>
+    <Layout title='Website & Application Development Portfolio | Asher Best' description="Asher Best's website and application developmenet portfolio.">
+      <section className={styles.section}>
+        <div>
+          <h1>
+            Hi there, my name is <span>Asher Best</span>
+            <br />
+            I'm a musician, programmer and gamer
+          </h1>
+          <CallToAction href='/#about' text='Learn More' />
+        </div>
+      </section>
+      <section id='about' className={`${styles.section} ${styles.backgroundGreen} ${styles.clipBottom}`}>
+        <div>
+          <h2>ABOUT ME</h2>
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <StaticImage src='../images/asher_best.jpg' alt='Asher Best' className={styles.image} />
+            </div>
+            <div className={styles.column}>
+              <p>
+                Thank you for taking the time to check out my website! I sing, write songs and play guitar. My latest project was recorded with my band,{' '}
+                <a href='https://open.spotify.com/album/6q7s7kaYzbKl548e4c3Kel'>Make It Make Sense</a>. My favorite games are first person shooters such as{' '}
+                <a href='https://playvalorant.com/en-us/'>Valorant</a> and <a href='https://www.halowaypoint.com/'>Halo</a>. I also enjoy a good MMORPG like{' '}
+                <a href='https://worldofwarcraft.com/en-us/'>World of Warcraft</a> and <a href='https://www.newworld.com/en-us/'>New World</a>. I am an Application Developer.
+                I love designing and developing applications whether it is for web or mobile. I also find cybersecurity a fascinating subject of which I spend a lot of time
+                studying. Check out <Link to='/blog'>my blog</Link> where I write about my personal and professional life. Cheers!
+              </p>
+              <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='white' />
             </div>
           </div>
-        </section>
-        <section id='projects'>
-          <div>
-            <h2 className='section-title projects-title'>PROJECTS</h2>
-            {data.allContentfulProject.nodes.map(node => (
-              <div key={node.id} className='project-card columns'>
-                <div className='project-card-content'>
-                  <h3>{node.title}</h3>
-                  <p>{node.description.description}</p>
-                  <CallToAction href={node.siteUrl} text='See Live' className='cta cta-green' target='_blank' rel='noopener noreferrer' />
-                </div>
-                <div className='project-card-image'>
-                  <GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
-                </div>
-              </div>
-            ))}
+        </div>
+      </section>
+      <section id='projects' className={styles.section}>
+        <div>
+          <h2>PROGRAMMING</h2>
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <p>
+                I specialize in programming languages such as HTML, CSS, JavaScript and Node.js. Frameworks I work with include React, Next.js and Gatsby. For content
+                management systems, my go-to's are Sanity and Contentful. From concept to completion, I will design and develop a high quality website or application that
+                adequately captures and demonstrates your company's unique vision and brand at an affordable price. I would love the opportunity to work with you! Let's build
+                something awesome.
+              </p>
+              <CallToAction href='/programming' text='See Projects' />
+            </div>
+            <div className={styles.column}>
+              <Carousel
+                slides={data.allContentfulProject.nodes.map(node => (
+                  <div key={node.id} style={{ margin: '2em 0' }}>
+                    <GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
+                  </div>
+                ))}
+              />
+            </div>
           </div>
-        </section>
-        <section id='contact' className='contact-section'>
-          <div>
-            <h2 className='section-title contact-title'>CONTACT</h2>
-            <p>Would you like to work with me? Awesome!</p>
-            <CallToAction href='mailto:ashermcbest@gmail.com' text="Let's Talk" className='cta cta-white' />
+        </div>
+      </section>
+      <section id='contact' className={`${styles.section} ${styles.backgroundGreen} ${styles.clipTop}`}>
+        <div>
+          <h2>MUSIC</h2>
+          <div className={styles.columns}>
+            <div className={styles.column}>
+              <iframe
+                className={styles.playlist}
+                src='https://open.spotify.com/embed/album/6q7s7kaYzbKl548e4c3Kel?utm_source=generator&theme=0'
+                width='100%'
+                height={425}
+                frameBorder={0}
+                allowFullScreen={false}
+                allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
+                loading='lazy'
+              />
+            </div>
+            <div className={styles.column}>
+              <p>
+                My latest project is an album titled <em>Memory Wall</em> that I recorded with my band Make it Make Sense. It is available on all major streaming platforms.
+                The overall sound is grunge, fast-paced, high energy and melodic. However, there are songs with jazzy and acoustic elements. I wrote all of the songs
+                throughout the last ten years. I am also lead singer and lead guitarist. Labrandon Bowen played drums, keys and backup vocals. Shane Stanley provided bass
+                guitar and vocals. The album was recorded at <a href='https://thekitchenstudios.net'>Kitchen Studios</a> in Dallas, Texas. I hope you enjoy listening to this
+                album as much as I enjoyed recording it!
+              </p>
+            </div>
           </div>
-        </section>
-      </main>
-      <Footer theme={theme} setScrollTop={setScrollTop} />
-    </div>
+        </div>
+      </section>
+    </Layout>
   );
 }
 
-export const query = graphql`
+export const indexQuery = graphql`
   query IndexQuery {
     allContentfulProject {
       nodes {
         id
-        title
-        description {
-          description
-        }
-        siteUrl
         previewImage {
-          id
           title
           gatsbyImageData
         }

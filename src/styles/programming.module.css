@@ -1,0 +1,27 @@
+.section > div {
+  max-width: 1200px;
+  margin: 10em auto;
+  padding: 0 1em;
+}
+.section h1,
+.section h2 {
+  letter-spacing: .25em;
+}
+.divider {
+  border: 1px solid #feffff;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 2em;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.row a {
+  color: #3aafa9;
+  text-decoration: none;
+  font-weight: bold;
+}
