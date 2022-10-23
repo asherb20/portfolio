@@ -2,9 +2,9 @@
 
 ## Roadmap
 
-- [ ] About Page
-- [ ] Programming Page
-- [ ] Music Page
+- [x] About Page
+- [x] Programming Page
+- [x] Music Page
 - [ ] Contact Form
 - [x] Blog Page
 - [x] Blog Post Page

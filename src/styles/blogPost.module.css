@@ -1,6 +1,7 @@
 .section > div {
   max-width: 768px;
   margin: 10em auto;
+  padding: 0 1em;
 }
 .section h1 {
   text-align: center;

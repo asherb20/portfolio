@@ -18,11 +18,11 @@ export default function About({ data }) {
             <div className={styles.column}>
               <p>
                 Thank you for taking the time to check out my website! I sing, write songs and play guitar. My latest project was recorded with my band,{' '}
-                <Link to='https://open.spotify.com/album/6q7s7kaYzbKl548e4c3Kel'>Make It Make Sense</Link>. My favorite games are first person shooters such as{' '}
-                <Link to='https://playvalorant.com/en-us/'>Valorant</Link> and <Link to='https://www.halowaypoint.com/'>Halo</Link>. I also enjoy a good MMORPG like{' '}
-                <Link to='https://worldofwarcraft.com/en-us/'>World of Warcraft</Link> and <Link to='https://www.newworld.com/en-us/'>New World</Link>. I am an Application
-                Developer. I love designing and developing applications whether it is for web or mobile. I also find cybersecurity a fascinating subject of which I spend a lot
-                of time studying. Check out <Link to='/blog'>my blog</Link> where I write about my personal and professional life. Cheers!
+                <a href='https://open.spotify.com/album/6q7s7kaYzbKl548e4c3Kel'>Make It Make Sense</a>. My favorite games are first person shooters such as{' '}
+                <a href='https://playvalorant.com/en-us/'>Valorant</a> and <a href='https://www.halowaypoint.com/'>Halo</a>. I also enjoy a good MMORPG like{' '}
+                <a href='https://worldofwarcraft.com/en-us/'>World of Warcraft</a> and <a href='https://www.newworld.com/en-us/'>New World</a>. I am an Application Developer.
+                I love designing and developing applications whether it is for web or mobile. I also find cybersecurity a fascinating subject of which I spend a lot of time
+                studying. Check out <Link to='/blog'>my blog</Link> where I write about my personal and professional life. Cheers!
               </p>
             </div>
             <div className={styles.column}>

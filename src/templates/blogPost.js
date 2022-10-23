@@ -5,7 +5,6 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/blogPost.module.css';
 
 export default function blogPost({ pageContext }) {
-  console.log(pageContext);
   const { author, content, createdAt, thumbnail, title } = pageContext;
 
   return (

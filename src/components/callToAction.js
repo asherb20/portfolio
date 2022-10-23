@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import * as styles from '../styles/callToAction.module.css';
 
 export default function CallToAction({ href, text, color = 'green', target, rel, center = false }) {
@@ -7,8 +6,8 @@ export default function CallToAction({ href, text, color = 'green', target, rel,
   if (center) className += ` ${styles.center}`;
 
   return (
-    <Link to={href} className={className} target={target} rel={rel}>
+    <a href={href} className={className} target={target} rel={rel}>
       {text}
-    </Link>
+    </a>
   );
 }

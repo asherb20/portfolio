@@ -26,12 +26,14 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
-  data.allContentfulBlogPost.nodes.forEach(node => {
-    const slug = node.slug;
+  const posts = data.allContentfulBlogPost.nodes;
+
+  posts.forEach(post => {
+    const slug = post.slug;
     actions.createPage({
       path: `/blog/${slug}`,
       component: require.resolve(`./src/templates/blogPost.js`),
-      context: node
+      context: post
     });
   });
 };
