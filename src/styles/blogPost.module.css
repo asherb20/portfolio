@@ -6,6 +6,10 @@
 .section h1 {
   text-align: center;
 }
+.section a {
+  text-decoration: none;
+  color: #3aafa9;
+}
 .description {
   display: flex;
   justify-content: center;
@@ -17,8 +21,8 @@
   height: 48px;
 }
 .description > p {
-  padding-left: .5em;
+  padding-left: 0.5em;
 }
 .thumbnail {
-  border-radius: .25em;
+  border-radius: 0.25em;
 }

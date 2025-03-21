@@ -23,15 +23,16 @@ export default function Blog({ data }) {
           <h1>BLOG</h1>
           <hr className={styles.divider} />
           <p>
-            Thanks for checking out my blog! My blog posts cover various topics such as my personal life, career, programming, music, and more. Be sure to filter by category
-            if you are interested in a specific topic.
+            Welcome to my blog, where I share insights, tutorials, and experiences on DevOps, cloud computing, software development, and cybersecurity. Whether you're an
+            aspiring developer, a seasoned engineer, or a tech enthusiast, you'll find practical tips, industry trends, and deep dives into cutting-edge technologies.
           </p>
+          <p>Join me as I explore the evolving landscape of automation, scalability, security, and innovation—one post at a time.</p>
         </div>
       </section>
       {posts.length > 0 && (
         <section className={styles.section}>
           <div>
-            <div className={styles.categories}>
+            <div>
               {categories.map(category => (
                 <button
                   name={category.name}
@@ -49,14 +50,7 @@ export default function Blog({ data }) {
               {posts
                 .filter(post => selectedCategories.includes(post.category.name))
                 .map(node => (
-                  <BlogPostLink
-                    key={node.id}
-                    imageData={node.thumbnail.gatsbyImageData}
-                    imageTitle={node.thumbnail.title}
-                    category={node.category.name}
-                    title={node.title}
-                    slug={node.slug}
-                  />
+                  <BlogPostLink key={node.id} category={node.category.name} title={node.title} slug={node.slug} />
                 ))}
             </div>
           </div>
@@ -68,13 +62,9 @@ export default function Blog({ data }) {
 
 export const blogQuery = graphql`
   query BlogQuery {
-    allContentfulBlogPost(sort: { order: DESC, fields: createdAt }) {
+    allContentfulBlogPost(sort: { order: DESC, fields: dateWritten }) {
       nodes {
         id
-        thumbnail {
-          gatsbyImageData
-          title
-        }
         category {
           name
         }

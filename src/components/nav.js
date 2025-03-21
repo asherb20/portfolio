@@ -6,8 +6,7 @@ import * as styles from '../styles/nav.module.css';
 const NAV_LIST_LINKS = [
   { to: '/', text: 'Home' },
   { to: '/about', text: 'About' },
-  { to: '/programming', text: 'Programming' },
-  { to: '/music', text: 'Music' },
+  { to: '/portfolio', text: 'Portfolio' },
   { to: '/blog', text: 'Blog' }
 ];
 
@@ -33,7 +32,7 @@ export default function Nav() {
             <ul>
               {NAV_LIST_LINKS.map(link => (
                 <li key={link.to}>
-                  <Link to={link.to} onClick={() => setDrawerVisible(false)}>
+                  <Link to={link.to} onClick={() => setDrawerVisible(false)} activeClassName={styles.activeLink}>
                     {link.text}
                   </Link>
                 </li>
