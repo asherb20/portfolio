@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/about.module.css';
 import BlogPostLink from '../components/blogPostLink';
+import CallToAction from '../components/callToAction';
 
 export default function About({ data }) {
   const posts = data.allContentfulBlogPost.nodes;
@@ -17,13 +18,18 @@ export default function About({ data }) {
           <div className={styles.columns}>
             <div className={styles.column}>
               <p>
-                Thank you for taking the time to check out my website! I sing, write songs and play guitar. My latest project was recorded with my band,{' '}
-                <a href='https://open.spotify.com/album/6q7s7kaYzbKl548e4c3Kel'>Make It Make Sense</a>. My favorite games are first person shooters such as{' '}
-                <a href='https://playvalorant.com/en-us/'>Valorant</a> and <a href='https://www.halowaypoint.com/'>Halo</a>. I also enjoy a good MMORPG like{' '}
-                <a href='https://worldofwarcraft.com/en-us/'>World of Warcraft</a> and <a href='https://www.newworld.com/en-us/'>New World</a>. I am an Application Developer.
-                I love designing and developing applications whether it is for web or mobile. I also find cybersecurity a fascinating subject of which I spend a lot of time
-                studying. Check out <Link to='/blog'>my blog</Link> where I write about my personal and professional life. Cheers!
+                I'm a seasoned DevOps leader and software engineer with a passion for building scalable, secure, and high-performing systems. With expertise in cloud
+                architecture, automation, and CI/CD pipelines, I specialize in streamlining development workflows and optimizing infrastructure for reliability and efficiency.
               </p>
+              <p>
+                Beyond my technical expertise, I am dedicated to knowledge sharing, mentoring aspiring developers, and fostering a culture of continuous improvement. Through
+                my content channel, I create educational resources on coding, DevOps, and cloud technologies to empower the next generation of engineers.
+              </p>
+              <p>
+                Whether leading DevOps initiatives, architecting cloud solutions, or guiding teams toward operational excellence, I thrive at the intersection of technology
+                and innovation. Let's build something great together.
+              </p>
+              <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='green' />
             </div>
             <div className={styles.column}>
               <StaticImage src='../images/asher_best.jpg' alt='Asher Best' className={styles.image} />
@@ -41,14 +47,7 @@ export default function About({ data }) {
             <hr className={styles.divider} />
             <div className={styles.gallery}>
               {posts.map(post => (
-                <BlogPostLink
-                  key={post.id}
-                  imageData={post.thumbnail.gatsbyImageData}
-                  imageTitle={post.thumbnail.title}
-                  category={post.category.name}
-                  title={post.title}
-                  slug={post.slug}
-                />
+                <BlogPostLink key={post.id} category={post.category.name} title={post.title} slug={post.slug} />
               ))}
             </div>
           </div>
@@ -60,14 +59,10 @@ export default function About({ data }) {
 
 export const aboutQuery = graphql`
   query AboutQuery {
-    allContentfulBlogPost(sort: { order: DESC, fields: createdAt }, limit: 3) {
+    allContentfulBlogPost(sort: { order: DESC, fields: dateWritten }, limit: 3) {
       nodes {
         id
         slug
-        thumbnail {
-          title
-          gatsbyImageData
-        }
         title
         category {
           name

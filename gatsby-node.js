@@ -16,10 +16,7 @@ exports.createPages = async function ({ actions, graphql }) {
             raw
           }
           createdAt(formatString: "LL")
-          thumbnail {
-            title
-            gatsbyImageData
-          }
+          dateWritten(formatString: "LL")
           title
         }
       }

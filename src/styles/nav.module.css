@@ -30,16 +30,16 @@
   top: 0;
   right: -280px;
   height: 100vh;
-  transition: .3s;
+  transition: 0.3s;
   padding: 1em;
 }
 .drawerShow {
   right: 0 !important;
-  transition: .3s;
+  transition: 0.3s;
 }
 .drawerHide {
   right: -280px;
-  transition: .3s;
+  transition: 0.3s;
 }
 .drawer > div {
   display: flex;
@@ -51,16 +51,19 @@
 }
 .drawer > ul {
   list-style-type: none;
-  padding: .5em 1em;
+  padding: 0.5em 1em;
   margin: 0;
 }
 .drawer li {
-  padding: .5em 0;
+  padding: 0.5em 0;
 }
 .drawer a {
   text-decoration: none;
   font-weight: bold;
   color: #feffff;
+}
+.activeLink {
+  color: #17252a !important;
 }
 @media (min-width: 992px) {
   .column > button {
@@ -87,6 +90,9 @@
   }
   .drawer a:hover {
     color: #3aafa9 !important;
-    transition: .3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  .activeLink {
+    color: #3aafa9 !important;
   }
 }

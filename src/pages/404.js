@@ -1,7 +1,7 @@
 import * as React from 'react';
+import * as styles from '../styles/index.module.css';
 import Layout from '../components/layout';
 import CallToAction from '../components/callToAction';
-import * as styles from '../styles/index.module.css';
 
 export default function NotFound() {
   return (

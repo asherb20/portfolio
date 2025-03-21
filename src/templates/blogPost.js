@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/blogPost.module.css';
 
 export default function blogPost({ pageContext }) {
-  const { author, content, createdAt, thumbnail, title } = pageContext;
+  const { author, content, dateWritten, title } = pageContext;
 
   return (
     <Layout title={`${title} | Asher Best Blog`}>
@@ -13,12 +13,12 @@ export default function blogPost({ pageContext }) {
         <div>
           <h1>{title}</h1>
           <div className={styles.description}>
-            <GatsbyImage className={styles.authorImage} image={getImage(author.photo.gatsbyImageData)} alt={author.photo.title} />
+            <GatsbyImage image={getImage(author.photo.gatsbyImageData)} alt={author.photo.title} />
             <p>
-              <strong>{author.name}</strong> • {createdAt}
+              <strong>{author.name}</strong> • {dateWritten}
             </p>
           </div>
-          <GatsbyImage className={styles.thumbnail} image={getImage(thumbnail.gatsbyImageData)} alt={thumbnail.title} />
+          {/* <GatsbyImage className={styles.thumbnail} image={getImage(thumbnail.gatsbyImageData)} alt={thumbnail.title} /> */}
           {renderRichText(content)}
         </div>
       </section>

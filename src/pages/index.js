@@ -1,20 +1,20 @@
 import React from 'react';
 import { StaticImage, GatsbyImage, getImage } from 'gatsby-plugin-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import CallToAction from '../components/callToAction';
 import Layout from '../components/layout';
 import * as styles from '../styles/index.module.css';
 import Carousel from '../components/carousel';
 
-export default function Index({ data }) {
+export default function IndexPage({ data }) {
   return (
-    <Layout title='Website & Application Development Portfolio | Asher Best' description="Asher Best's website and application developmenet portfolio.">
+    <Layout title='DevOps Portfolio | Asher Best' description="Asher Best's DevOps portfolio.">
       <section className={styles.section}>
         <div>
           <h1>
             Hi there, my name is <span>Asher Best</span>
             <br />
-            I'm a musician, programmer and gamer
+            I'm a Director of DevOps
           </h1>
           <CallToAction href='/#about' text='Learn More' />
         </div>
@@ -28,12 +28,16 @@ export default function Index({ data }) {
             </div>
             <div className={styles.column}>
               <p>
-                Thank you for taking the time to check out my website! I sing, write songs and play guitar. My latest project was recorded with my band,{' '}
-                <a href='https://open.spotify.com/album/6q7s7kaYzbKl548e4c3Kel'>Make It Make Sense</a>. My favorite games are first person shooters such as{' '}
-                <a href='https://playvalorant.com/en-us/'>Valorant</a> and <a href='https://www.halowaypoint.com/'>Halo</a>. I also enjoy a good MMORPG like{' '}
-                <a href='https://worldofwarcraft.com/en-us/'>World of Warcraft</a> and <a href='https://www.newworld.com/en-us/'>New World</a>. I am an Application Developer.
-                I love designing and developing applications whether it is for web or mobile. I also find cybersecurity a fascinating subject of which I spend a lot of time
-                studying. Check out <Link to='/blog'>my blog</Link> where I write about my personal and professional life. Cheers!
+                I'm a seasoned DevOps leader and software engineer with a passion for building scalable, secure, and high-performing systems. With expertise in cloud
+                architecture, automation, and CI/CD pipelines, I specialize in streamlining development workflows and optimizing infrastructure for reliability and efficiency.
+              </p>
+              <p>
+                Beyond my technical expertise, I am dedicated to knowledge sharing, mentoring aspiring developers, and fostering a culture of continuous improvement. Through
+                my content channel, I create educational resources on coding, DevOps, and cloud technologies to empower the next generation of engineers.
+              </p>
+              <p>
+                Whether leading DevOps initiatives, architecting cloud solutions, or guiding teams toward operational excellence, I thrive at the intersection of technology
+                and innovation. Let's build something great together.
               </p>
               <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='white' />
             </div>
@@ -42,16 +46,20 @@ export default function Index({ data }) {
       </section>
       <section id='projects' className={styles.section}>
         <div>
-          <h2>PROGRAMMING</h2>
+          <h2>PORTFOLIO</h2>
           <div className={styles.columns}>
             <div className={styles.column}>
               <p>
-                I specialize in programming languages such as HTML, CSS, JavaScript and Node.js. Frameworks I work with include React, Next.js and Gatsby. For content
-                management systems, my go-to's are Sanity and Contentful. From concept to completion, I will design and develop a high quality website or application that
-                adequately captures and demonstrates your company's unique vision and brand at an affordable price. I would love the opportunity to work with you! Let's build
-                something awesome.
+                From cloud-native architectures to DevOps automation and secure software solutions, my work is driven by efficiency, scalability, and innovation. I’ve led
+                projects that optimize infrastructure, enhance security, and streamline development workflows, ensuring reliability at every stage.
               </p>
-              <CallToAction href='/programming' text='See Projects' />
+              <p>
+                Explore my portfolio to see real-world applications of my expertise in cloud computing, API development, automation, and software engineering. Whether it’s
+                building high-performing systems, integrating advanced DevOps strategies, or developing cutting-edge applications, each project reflects my commitment to
+                delivering impactful solutions.
+              </p>
+              <p>Let’s turn ideas into reality—one system at a time.</p>
+              <CallToAction href='/portfolio' text='See Projects' />
             </div>
             <div className={styles.column}>
               <Carousel
@@ -61,34 +69,6 @@ export default function Index({ data }) {
                   </div>
                 ))}
               />
-            </div>
-          </div>
-        </div>
-      </section>
-      <section id='contact' className={`${styles.section} ${styles.backgroundGreen} ${styles.clipTop}`}>
-        <div>
-          <h2>MUSIC</h2>
-          <div className={styles.columns}>
-            <div className={styles.column}>
-              <iframe
-                className={styles.playlist}
-                src='https://open.spotify.com/embed/album/6q7s7kaYzbKl548e4c3Kel?utm_source=generator&theme=0'
-                width='100%'
-                height={425}
-                frameBorder={0}
-                allowFullScreen={false}
-                allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture'
-                loading='lazy'
-              />
-            </div>
-            <div className={styles.column}>
-              <p>
-                My latest project is an album titled <em>Memory Wall</em> that I recorded with my band Make it Make Sense. It is available on all major streaming platforms.
-                The overall sound is grunge, fast-paced, high energy and melodic. However, there are songs with jazzy and acoustic elements. I wrote all of the songs
-                throughout the last ten years. I am also lead singer and lead guitarist. Labrandon Bowen played drums, keys and backup vocals. Shane Stanley provided bass
-                guitar and vocals. The album was recorded at <a href='https://thekitchenstudios.net'>Kitchen Studios</a> in Dallas, Texas. I hope you enjoy listening to this
-                album as much as I enjoyed recording it!
-              </p>
             </div>
           </div>
         </div>
