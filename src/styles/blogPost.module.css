@@ -26,3 +26,7 @@
 .thumbnail {
   border-radius: 0.25em;
 }
+.code {
+  border-width: 1;
+  border-color: white;
+}

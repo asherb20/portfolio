@@ -14,6 +14,18 @@ exports.createPages = async function ({ actions, graphql }) {
           }
           content {
             raw
+            references {
+              ... on ContentfulCodeSnippet {
+                contentful_id
+                __typename
+                description
+                language
+                code {
+                  id
+                  code
+                }
+              }
+            }
           }
           createdAt(formatString: "LL")
           dateWritten(formatString: "LL")
