@@ -8,7 +8,20 @@ import Carousel from '../components/carousel';
 
 export default function IndexPage({ data }) {
   return (
-    <Layout title='DevOps Portfolio | Asher Best' description="Asher Best's DevOps portfolio.">
+    <Layout
+      title='Asher Best – DevOps Leader | Cloud & Software Engineer'
+      description='Explore the portfolio of Asher Best, a DevOps leader and software engineer specializing in cloud computing, automation, and scalable solutions. From CI/CD to security and infrastructure, discover expertise that powers innovation. 🚀'
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'Asher Best',
+        url: 'https://www.asherbest.com',
+        jobTitle: 'DevOps Leader & Cloud Engineer',
+        description:
+          'Explore the portfolio of Asher Best, a DevOps leader and software engineer specializing in cloud computing, automation, and scalable solutions. From CI/CD to security and infrastructure, discover expertise that powers innovation.',
+        sameAs: ['https://www.linkedin.com/in/asherbest', 'https://github.com/asherbest', 'https://twitter.com/asherbest']
+      }}
+    >
       <section className={styles.section}>
         <div>
           <h1>

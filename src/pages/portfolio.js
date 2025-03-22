@@ -11,7 +11,18 @@ export default function PortfolioPage({ data }) {
   const posts = data.allContentfulBlogPost.nodes;
 
   return (
-    <Layout title='Portfolio | Asher Best' description="Asher Best's programming skillset and portfolio.">
+    <Layout
+      title='Portfolio – Asher Best | DevOps & Cloud Engineering Projects'
+      description='Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology. 🚀'
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        url: 'https://www.asherbest.com/portfolio',
+        name: 'Portfolio – Asher Best',
+        description:
+          'Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology.'
+      }}
+    >
       <section className={styles.section}>
         <div>
           <h1>PORTFOLIO</h1>

@@ -5,10 +5,10 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import * as styles from '../styles/blogPost.module.css';
 
 export default function blogPost({ pageContext }) {
-  const { author, content, dateWritten, title } = pageContext;
+  const { author, content, dateWritten, title, description, structuredData } = pageContext;
 
   return (
-    <Layout title={`${title} | Asher Best Blog`}>
+    <Layout title={`${title} | Asher Best Blog`} description={description} structuredData={structuredData}>
       <section className={styles.section}>
         <div>
           <h1>{title}</h1>

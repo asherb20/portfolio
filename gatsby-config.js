@@ -3,7 +3,7 @@ if (process.env.NODE_ENV !== 'production') require('dotenv').config({ path: './.
 module.exports = {
   siteMetadata: {
     siteUrl: 'https://www.asherbest.com',
-    title: 'Portfolio'
+    title: 'Asher Best DevOps Portfolio and Blog'
   },
   plugins: [
     {
@@ -23,6 +23,12 @@ module.exports = {
       }
     },
     'gatsby-plugin-react-helmet',
+    {
+      resolve: `gatsby-plugin-react-helmet-canonical-urls`,
+      options: {
+        siteUrl: `https://www.asherbest.com`
+      }
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',

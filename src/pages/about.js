@@ -10,7 +10,18 @@ export default function About({ data }) {
   const posts = data.allContentfulBlogPost.nodes;
 
   return (
-    <Layout title='Programming | Asher Best' description="Asher Best's programming skillset and portfolio.">
+    <Layout
+      title='About Asher Best – DevOps Leader & Cloud Engineer'
+      description='Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship. 🚀'
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        url: 'https://www.asherbest.com/about',
+        name: 'About Asher Best',
+        description:
+          'Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship.'
+      }}
+    >
       <section className={styles.section}>
         <div>
           <h1>ABOUT</h1>

@@ -17,7 +17,18 @@ export default function Blog({ data }) {
   };
 
   return (
-    <Layout title='Blog | Asher Best' description="Asher Best's Personal and Professional Blog.">
+    <Layout
+      title='Blog – Asher Best | DevOps, Cloud, & Software Insights'
+      description='Dive into Asher Best’s blog for expert insights on DevOps, cloud computing, automation, and software development. Explore tutorials, industry trends, and best practices to stay ahead in the ever-evolving tech landscape. 🚀'
+      structuredData={{
+        '@context': 'https://schema.org',
+        '@type': 'Blog',
+        url: 'https://www.asherbest.com/blog',
+        name: 'Blog – Asher Best',
+        description:
+          'Dive into Asher Best’s blog for expert insights on DevOps, cloud computing, automation, and software development. Explore tutorials, industry trends, and best practices to stay ahead in the ever-evolving tech landscape.'
+      }}
+    >
       <section className={styles.section}>
         <div>
           <h1>BLOG</h1>
