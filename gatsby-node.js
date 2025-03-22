@@ -20,6 +20,7 @@ exports.createPages = async function ({ actions, graphql }) {
                 __typename
                 description
                 language
+                filePath
                 code {
                   id
                   code
