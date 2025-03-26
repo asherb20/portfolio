@@ -23,6 +23,32 @@
 .description > p {
   padding-left: 0.5em;
 }
-.thumbnail {
+.codeSection {
+  border-bottom: 1px solid #feffff;
+  font-size: 16px;
+}
+.codeHeader {
+  background-color: #3aafa9;
+  color: #feffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+  border-radius: 0.25em 0.25em 0 0;
+}
+.copyButton {
+  font-family: monospace;
+  color: #feffff;
   border-radius: 0.25em;
+  width: 60px;
+  height: 30px;
+}
+.copyButton:hover {
+  background-color: #247c7c;
+  transition: all 0.3s ease-in-out;
+}
+.codeBlock {
+  margin: 0;
+  padding: 1em;
+  overflow-x: auto;
 }

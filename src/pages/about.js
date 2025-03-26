@@ -16,7 +16,7 @@ export default function About({ data }) {
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
-        url: 'https://www.asherbest.com/about',
+        url: 'https://www.asherbest.com/about/',
         name: 'About Asher Best',
         description:
           'Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship.'
@@ -53,7 +53,7 @@ export default function About({ data }) {
           <div>
             <div className={styles.row}>
               <h2>BLOG POSTS</h2>
-              <Link to='/blog'>See More</Link>
+              <Link to='/blog/'>See More</Link>
             </div>
             <hr className={styles.divider} />
             <div className={styles.gallery}>

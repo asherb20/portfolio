@@ -14,6 +14,19 @@ exports.createPages = async function ({ actions, graphql }) {
           }
           content {
             raw
+            references {
+              ... on ContentfulCodeSnippet {
+                contentful_id
+                __typename
+                description
+                language
+                filePath
+                code {
+                  id
+                  code
+                }
+              }
+            }
           }
           createdAt(formatString: "LL")
           dateWritten(formatString: "LL")
@@ -80,7 +93,7 @@ exports.createPages = async function ({ actions, graphql }) {
     };
 
     actions.createPage({
-      path: `/blog/${slug}`,
+      path: `/blog/${slug}/`,
       component: require.resolve(`./src/templates/blogPost.js`),
       context: { ...post, structuredData }
     });

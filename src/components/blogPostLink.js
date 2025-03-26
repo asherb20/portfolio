@@ -14,7 +14,7 @@ export default function BlogPostLink({ category, title, slug }) {
   }
 
   return (
-    <Link className={styles.container} to={`/blog/${slug}`}>
+    <Link className={styles.container} to={`/blog/${slug}/`}>
       <div className={styles.thumbnail}>{icon}</div>
       <p>{category.toUpperCase()}</p>
       <h3>{title}</h3>

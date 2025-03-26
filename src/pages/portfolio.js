@@ -17,7 +17,7 @@ export default function PortfolioPage({ data }) {
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
-        url: 'https://www.asherbest.com/portfolio',
+        url: 'https://www.asherbest.com/portfolio/',
         name: 'Portfolio – Asher Best',
         description:
           'Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology.'
@@ -63,7 +63,7 @@ export default function PortfolioPage({ data }) {
           <div>
             <div className={styles.row}>
               <h2>BLOG POSTS</h2>
-              <Link to='/blog'>See More</Link>
+              <Link to='/blog/'>See More</Link>
             </div>
             <hr className={styles.divider} />
             <div className={styles.gallery}>
