@@ -93,7 +93,7 @@ exports.createPages = async function ({ actions, graphql }) {
     };
 
     actions.createPage({
-      path: `/blog/${slug}`,
+      path: `/blog/${slug}/`,
       component: require.resolve(`./src/templates/blogPost.js`),
       context: { ...post, structuredData }
     });

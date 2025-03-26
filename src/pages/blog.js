@@ -23,7 +23,7 @@ export default function Blog({ data }) {
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'Blog',
-        url: 'https://www.asherbest.com/blog',
+        url: 'https://www.asherbest.com/blog/',
         name: 'Blog – Asher Best',
         description:
           'Dive into Asher Best’s blog for expert insights on DevOps, cloud computing, automation, and software development. Explore tutorials, industry trends, and best practices to stay ahead in the ever-evolving tech landscape.'
