@@ -57,6 +57,10 @@ exports.createPages = async function ({ actions, graphql }) {
             keywords
             articleSection
           }
+          thumbnail {
+            title
+            gatsbyImageData
+          }
         }
       }
     }
@@ -64,7 +68,7 @@ exports.createPages = async function ({ actions, graphql }) {
 
   const posts = data.allContentfulBlogPost.nodes;
 
-  posts.forEach(post => {
+  posts.forEach((post) => {
     const slug = post.slug;
     const structuredData = {
       '@context': post.structuredData._context,
@@ -73,29 +77,29 @@ exports.createPages = async function ({ actions, graphql }) {
       author: {
         '@type': post.structuredData.author._type,
         name: post.structuredData.author.name,
-        url: post.structuredData.author.url
+        url: post.structuredData.author.url,
       },
       publisher: {
         '@type': post.structuredData.publisher._type,
         name: post.structuredData.publisher.name,
-        url: post.structuredData.publisher.url
+        url: post.structuredData.publisher.url,
       },
       mainEntityOfPage: {
         '@type': post.structuredData.mainEntityOfPage._type,
-        '@id': post.structuredData.mainEntityOfPage._id
+        '@id': post.structuredData.mainEntityOfPage._id,
       },
       url: post.structuredData.url,
       datePublished: post.structuredData.datePublished,
       dateModified: post.structuredData.dateModified,
       description: post.structuredData.description,
       keywords: post.structuredData.keywords,
-      articleSection: post.structuredData.articleSection
+      articleSection: post.structuredData.articleSection,
     };
 
     actions.createPage({
       path: `/blog/${slug}/`,
       component: require.resolve(`./src/templates/blogPost.js`),
-      context: { ...post, structuredData }
+      context: { ...post, structuredData },
     });
   });
 };

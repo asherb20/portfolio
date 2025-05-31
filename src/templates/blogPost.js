@@ -14,18 +14,28 @@ export default function BlogPost({ pageContext }) {
     setTimeout(() => setCopied(false), 3000); // Reset copy status after 3 seconds
   };
 
-  const { author, content, dateWritten, title, description, structuredData } = pageContext;
+  const {
+    author,
+    content,
+    dateWritten,
+    title,
+    description,
+    structuredData,
+    thumbnail,
+  } = pageContext;
 
   const options = {
+    renderMark: {
+      superscript: (text) => <sup className='superscript'>{text}</sup>,
+    },
     renderNode: {
-      [BLOCKS.EMBEDDED_ENTRY]: node => {
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
         const { __typename } = node.data.target;
         switch (__typename) {
           case 'ContentfulCodeSnippet':
             const {
-              language,
               filePath,
-              code: { code }
+              code: { code },
             } = node.data.target;
             return (
               <div className={styles.codeSection}>
@@ -39,7 +49,9 @@ export default function BlogPost({ pageContext }) {
                   </div>
                   <div>
                     <CopyToClipboard text={code} onCopy={onCopy}>
-                      <button className={styles.copyButton}>{copied ? 'Copied!' : 'Copy'}</button>
+                      <button className={styles.copyButton}>
+                        {copied ? 'Copied!' : 'Copy'}
+                      </button>
                     </CopyToClipboard>
                   </div>
                 </div>
@@ -55,21 +67,37 @@ export default function BlogPost({ pageContext }) {
           default:
             return null;
         }
-      }
-    }
+      },
+    },
   };
 
   return (
-    <Layout title={`${title} | Asher Best Blog`} description={description} structuredData={structuredData}>
+    <Layout
+      title={`${title} | Asher Best Blog`}
+      description={description}
+      structuredData={structuredData}
+    >
       <section className={styles.section}>
         <div>
           <h1>{title}</h1>
           <div className={styles.description}>
-            <GatsbyImage image={getImage(author.photo.gatsbyImageData)} alt={author.photo.title} />
+            <GatsbyImage
+              image={getImage(author.photo.gatsbyImageData)}
+              alt={author.photo.title}
+            />
             <p>
               <strong>{author.name}</strong> • {dateWritten}
             </p>
           </div>
+          {thumbnail && (
+            <div>
+              <GatsbyImage
+                className={styles.thumbnail}
+                image={getImage(thumbnail.gatsbyImageData)}
+                alt={thumbnail.title}
+              />
+            </div>
+          )}
           {renderRichText(content, options)}
         </div>
       </section>
