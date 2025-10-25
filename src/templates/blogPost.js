@@ -74,9 +74,9 @@ export default function BlogPost({ pageContext }) {
           return null;
         }
         return (
-          <div className={styles.embeddedImage}>
-            <GatsbyImage image={getImage(gatsbyImageData)} alt={title} />
-          </div>
+          // <div className={styles.embeddedImage}>
+          <GatsbyImage image={getImage(gatsbyImageData)} alt={title} />
+          // </div>
         );
       },
     },
