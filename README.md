@@ -9,6 +9,6 @@
 - ✅ Blog Post Page
 - ✅ Project Desktop/Mobile Preview
 - ✅ Blog Code Snippets
-- 🚧 Blog Images
+- ✅ Blog Images
 - ⏳ Transition Scroll
 - ⏳ Contact Form
