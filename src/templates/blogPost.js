@@ -68,6 +68,14 @@ export default function BlogPost({ pageContext }) {
             return null;
         }
       },
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { gatsbyImageData, title } = node.data.target;
+        return (
+          <div className={styles.embeddedImage}>
+            <GatsbyImage image={getImage(gatsbyImageData)} alt={title} />
+          </div>
+        );
+      },
     },
   };
 

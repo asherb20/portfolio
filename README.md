@@ -2,13 +2,13 @@
 
 ## Roadmap
 
-- [x] About Page
-- [x] Programming Page
-- [x] Music Page
-- [x] Blog Page
-- [x] Blog Post Page
-- [x] Project Desktop/Mobile Preview
-- [x] Blog Code Snippets
-- [ ] Blog Images
-- [ ] Transition Scroll
-- [ ] Contact Form
+- ✅ About Page
+- ✅ Programming Page
+- ✅ Music Page
+- ✅ Blog Page
+- ✅ Blog Post Page
+- ✅ Project Desktop/Mobile Preview
+- ✅ Blog Code Snippets
+- 🚧 Blog Images
+- ⏳ Transition Scroll
+- ⏳ Contact Form
