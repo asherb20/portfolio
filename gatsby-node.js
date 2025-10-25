@@ -26,6 +26,13 @@ exports.createPages = async function ({ actions, graphql }) {
                   code
                 }
               }
+              ... on ContentfulAsset {
+                contentful_id
+                __typename
+                gatsbyImageData
+                title
+                description
+              }
             }
           }
           createdAt(formatString: "LL")
@@ -60,6 +67,8 @@ exports.createPages = async function ({ actions, graphql }) {
           thumbnail {
             title
             gatsbyImageData
+            title
+            description
           }
         }
       }
