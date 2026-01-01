@@ -8,25 +8,29 @@ export default function Blog({ data }) {
   const posts = data.allContentfulBlogPost.nodes;
   const categories = data.allContentfulBlogPostCategory.nodes;
 
-  const [selectedCategories, setSelectedCategories] = useState(categories.map(category => category.name));
+  const [selectedCategories, setSelectedCategories] = useState(
+    categories.map((category) => category.name)
+  );
 
-  const onCategoryChange = e => {
+  const onCategoryChange = (e) => {
     setSelectedCategories(
-      selectedCategories.includes(e.target.name) ? selectedCategories.filter(category => category !== e.target.name) : [...selectedCategories, e.target.name]
+      selectedCategories.includes(e.target.name)
+        ? selectedCategories.filter((category) => category !== e.target.name)
+        : [...selectedCategories, e.target.name]
     );
   };
 
   return (
     <Layout
       title='Blog – Asher Best | DevOps, Cloud, & Software Insights'
-      description='Dive into Asher Best’s blog for expert insights on DevOps, cloud computing, automation, and software development. Explore tutorials, industry trends, and best practices to stay ahead in the ever-evolving tech landscape. 🚀'
+      description='Dive into Asher Best’s blog for insights on DevOps, cloud computing, automation, software development, cybersecurity, and space science and exploration. 🚀'
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'Blog',
         url: 'https://www.asherbest.com/blog/',
         name: 'Blog – Asher Best',
         description:
-          'Dive into Asher Best’s blog for expert insights on DevOps, cloud computing, automation, and software development. Explore tutorials, industry trends, and best practices to stay ahead in the ever-evolving tech landscape.'
+          'Dive into Asher Best’s blog for insights on DevOps, cloud computing, automation, software development, cybersecurity, and space science and exploration.',
       }}
     >
       <section className={styles.section}>
@@ -34,22 +38,35 @@ export default function Blog({ data }) {
           <h1>BLOG</h1>
           <hr className={styles.divider} />
           <p>
-            Welcome to my blog, where I share insights, tutorials, and experiences on DevOps, cloud computing, software development, and cybersecurity. Whether you're an
-            aspiring developer, a seasoned engineer, or a tech enthusiast, you'll find practical tips, industry trends, and deep dives into cutting-edge technologies.
+            Welcome to my blog, where I share insights, tutorials, and
+            experiences on DevOps, cloud computing, software development, and
+            cybersecurity. I have a passion for space science and exploration so
+            you might find some posts related to this subject as well. Whether
+            you're an aspiring developer, a seasoned engineer, a tech
+            enthusiast, or a space explorer, you'll find practical tips,
+            industry trends, and deep dives into cutting-edge technologies and
+            space science.
           </p>
-          <p>Join me as I explore the evolving landscape of automation, scalability, security, and innovation—one post at a time.</p>
+          <p>
+            Join me as I explore the universe and the evolving landscape of
+            automation, scalability, security, and innovation, one post at a
+            time.
+          </p>
         </div>
       </section>
       {posts.length > 0 && (
         <section className={styles.section}>
           <div>
             <div>
-              {categories.map(category => (
+              <p>FILTER BY CATEGORY:</p>
+              {categories.map((category) => (
                 <button
                   name={category.name}
                   onClick={onCategoryChange}
                   key={category.id}
-                  className={`${styles.button} ${selectedCategories.includes(category.name) && styles.active}`}
+                  className={`${styles.button} ${
+                    selectedCategories.includes(category.name) && styles.active
+                  }`}
                 >
                   {category.name.toUpperCase()}
                 </button>
@@ -59,9 +76,16 @@ export default function Blog({ data }) {
             <hr className={styles.divider} />
             <div className={styles.columns}>
               {posts
-                .filter(post => selectedCategories.includes(post.category.name))
-                .map(node => (
-                  <BlogPostLink key={node.id} category={node.category.name} title={node.title} slug={node.slug} />
+                .filter((post) =>
+                  selectedCategories.includes(post.category.name)
+                )
+                .map((node) => (
+                  <BlogPostLink
+                    key={node.id}
+                    category={node.category.name}
+                    title={node.title}
+                    slug={node.slug}
+                  />
                 ))}
             </div>
           </div>
