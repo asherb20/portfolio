@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import * as styles from '../styles/blogPostLink.module.css';
-import { DevOpsIcon, WebDevIcon, SecurityIcon, CareerIcon } from './icons';
+import {
+  DevOpsIcon,
+  WebDevIcon,
+  SecurityIcon,
+  CareerIcon,
+  RocketShipIcon,
+} from './icons';
 
 export default function BlogPostLink({ category, title, slug }) {
   let icon = <CareerIcon size={100} color='white' />;
@@ -11,6 +17,8 @@ export default function BlogPostLink({ category, title, slug }) {
     icon = <DevOpsIcon size={100} color='white' />;
   } else if (category === 'Cybersecurity') {
     icon = <SecurityIcon size={75} color='white' />;
+  } else if (category === 'Space Science & Exploration') {
+    icon = <RocketShipIcon size={75} color='white' />;
   }
 
   return (

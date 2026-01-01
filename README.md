@@ -12,3 +12,4 @@
 - ✅ Blog Images
 - ⏳ Transition Scroll
 - ⏳ Contact Form
+- ⏳ Blog Post Preview

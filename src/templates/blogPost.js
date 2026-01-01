@@ -68,15 +68,22 @@ export default function BlogPost({ pageContext }) {
             return null;
         }
       },
-      'embedded-asset-block': (node) => {
-        const { gatsbyImageData, title } = node.data.target;
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { gatsbyImageData, title, description } = node.data.target;
         if (!gatsbyImageData) {
           return null;
         }
+        const image = getImage(gatsbyImageData);
+        if (!image) {
+          return null;
+        }
         return (
-          // <div className={styles.embeddedImage}>
-          <GatsbyImage image={getImage(gatsbyImageData)} alt={title} />
-          // </div>
+          <div className={styles.embeddedImage}>
+            <GatsbyImage image={image} alt={title} />
+            <div>
+              <em>{description}</em>
+            </div>
+          </div>
         );
       },
     },

@@ -2,7 +2,13 @@ import * as React from 'react';
 
 export const Bars = ({ size, color }) => {
   return (
-    <svg height={size} width={size} fill={color} viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      width={size}
+      fill={color}
+      viewBox='0 0 448 512'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' />
     </svg>
   );
@@ -10,7 +16,14 @@ export const Bars = ({ size, color }) => {
 
 export const Cross = ({ size, color }) => {
   return (
-    <svg height={size} id='Layer_1' version='1.1' viewBox='0 0 512 512' width={size} xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      id='Layer_1'
+      version='1.1'
+      viewBox='0 0 512 512'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         fill={color}
         d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z'
@@ -21,7 +34,13 @@ export const Cross = ({ size, color }) => {
 
 export const LinkedIn = ({ size, color }) => {
   return (
-    <svg height={size} version='1.1' viewBox='0 0 512 512' width={size} xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      version='1.1'
+      viewBox='0 0 512 512'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         fill={color}
         d='M256,0c141.29,0 256,114.71 256,256c0,141.29 -114.71,256 -256,256c-141.29,0 -256,-114.71 -256,-256c0,-141.29 114.71,-256 256,-256Zm-80.037,399.871l0,-199.921l-66.464,0l0,199.921l66.464,0Zm239.62,0l0,-114.646c0,-61.409 -32.787,-89.976 -76.509,-89.976c-35.255,0 -51.047,19.389 -59.889,33.007l0,-28.306l-66.447,0c0.881,18.757 0,199.921 0,199.921l66.446,0l0,-111.65c0,-5.976 0.43,-11.95 2.191,-16.221c4.795,-11.935 15.737,-24.299 34.095,-24.299c24.034,0 33.663,18.34 33.663,45.204l0,106.966l66.45,0Zm-272.403,-296.321c-22.74,0 -37.597,14.95 -37.597,34.545c0,19.182 14.405,34.544 36.717,34.544l0.429,0c23.175,0 37.6,-15.362 37.6,-34.544c-0.43,-19.595 -14.424,-34.545 -37.149,-34.545Z'
@@ -32,7 +51,14 @@ export const LinkedIn = ({ size, color }) => {
 
 export const GitHub = ({ size, color }) => {
   return (
-    <svg height={size} id='Layer_1' version='1.1' viewBox='0 0 512 512' width={size} xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      id='Layer_1'
+      version='1.1'
+      viewBox='0 0 512 512'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <g>
         <path
           fill={color}
@@ -45,7 +71,14 @@ export const GitHub = ({ size, color }) => {
 
 export const Email = ({ size, circleColor, iconColor }) => {
   return (
-    <svg height={size} width={size} id='Layer_1' version='1.1' viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      width={size}
+      id='Layer_1'
+      version='1.1'
+      viewBox='0 0 128 128'
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <g>
         <circle fill={circleColor} cx='64' cy='64' r='64' />
       </g>
@@ -56,10 +89,16 @@ export const Email = ({ size, circleColor, iconColor }) => {
       </g>
       <g>
         <g>
-          <path fill={iconColor} d='M64,72.4l38.2-32.7c-0.6-0.4-1.4-0.7-2.2-0.7H28c-0.8,0-1.6,0.3-2.2,0.7L64,72.4z' />
+          <path
+            fill={iconColor}
+            d='M64,72.4l38.2-32.7c-0.6-0.4-1.4-0.7-2.2-0.7H28c-0.8,0-1.6,0.3-2.2,0.7L64,72.4z'
+          />
         </g>
         <g>
-          <path fill={iconColor} d='M66.6,75.4c-1.5,1.3-3.7,1.3-5.2,0L24,43.5V85c0,2.2,1.8,4,4,4h72c2.2,0,4-1.8,4-4V43.4L66.6,75.4z' />
+          <path
+            fill={iconColor}
+            d='M66.6,75.4c-1.5,1.3-3.7,1.3-5.2,0L24,43.5V85c0,2.2,1.8,4,4,4h72c2.2,0,4-1.8,4-4V43.4L66.6,75.4z'
+          />
         </g>
       </g>
     </svg>
@@ -68,7 +107,14 @@ export const Email = ({ size, circleColor, iconColor }) => {
 
 export const ChevronUp = ({ size, color }) => {
   return (
-    <svg height={size} id='Layer_1' version='1.1' viewBox='0 0 512 512' width={size} xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      id='Layer_1'
+      version='1.1'
+      viewBox='0 0 512 512'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         fill={color}
         d='M256,213.7L256,213.7L256,213.7l174.2,167.2c4.3,4.2,11.4,4.1,15.8-0.2l30.6-29.9c4.4-4.3,4.5-11.3,0.2-15.5L264.1,131.1  c-2.2-2.2-5.2-3.2-8.1-3c-3-0.1-5.9,0.9-8.1,3L35.2,335.3c-4.3,4.2-4.2,11.2,0.2,15.5L66,380.7c4.4,4.3,11.5,4.4,15.8,0.2L256,213.7  z'
@@ -123,7 +169,15 @@ export const Moon = ({ size, color }) => {
 
 export const DevOpsIcon = ({ size, color }) => {
   return (
-    <svg id='Layer_1' version='1.1' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' height={size} width={size} fill={color}>
+    <svg
+      id='Layer_1'
+      version='1.1'
+      viewBox='0 0 24 24'
+      xmlns='http://www.w3.org/2000/svg'
+      height={size}
+      width={size}
+      fill={color}
+    >
       <g>
         <g>
           <circle cx='1' cy='16' r='1' />
@@ -147,10 +201,22 @@ export const DevOpsIcon = ({ size, color }) => {
           <path d='M1.5,16c-0.16,0-0.315-0.077-0.411-0.215c-0.132-0.19-0.116-0.447,0.039-0.62l9-10c0.185-0.205,0.501-0.222,0.706-0.037    c0.205,0.186,0.222,0.501,0.037,0.707l-7.578,8.42l17.022-6.72c0.256-0.105,0.548,0.025,0.648,0.281    c0.102,0.257-0.024,0.547-0.281,0.648l-19,7.5C1.624,15.989,1.562,16,1.5,16z' />
         </g>
         <g>
-          <rect height='1' transform='matrix(0.6644 0.7474 -0.7474 0.6644 12.6767 -8.2284)' width='12.042' x='9.479' y='9.5' />
+          <rect
+            height='1'
+            transform='matrix(0.6644 0.7474 -0.7474 0.6644 12.6767 -8.2284)'
+            width='12.042'
+            x='9.479'
+            y='9.5'
+          />
         </g>
         <g>
-          <rect height='6.185' transform='matrix(0.9702 0.2423 -0.2423 0.9702 3.4198 -4.8063)' width='1' x='20.75' y='8.408' />
+          <rect
+            height='6.185'
+            transform='matrix(0.9702 0.2423 -0.2423 0.9702 3.4198 -4.8063)'
+            width='1'
+            x='20.75'
+            y='8.408'
+          />
         </g>
         <g>
           <path d='M13,18.5c-0.201,0-0.39-0.122-0.467-0.32c-0.099-0.258,0.03-0.547,0.287-0.646l6.5-2.5    c0.257-0.098,0.547,0.03,0.646,0.287c0.099,0.258-0.03,0.547-0.287,0.646l-6.5,2.5C13.121,18.49,13.06,18.5,13,18.5z' />
@@ -192,7 +258,12 @@ export const DevOpsIcon = ({ size, color }) => {
 
 export const WebDevIcon = ({ size, color }) => {
   return (
-    <svg viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg' height={size} width={size}>
+    <svg
+      viewBox='0 0 60 60'
+      xmlns='http://www.w3.org/2000/svg'
+      height={size}
+      width={size}
+    >
       <defs></defs>
       <title />
       <g data-name='Layer 2' id='Layer_2'>
@@ -201,10 +272,28 @@ export const WebDevIcon = ({ size, color }) => {
             <rect className='cls-1' />
             <circle fill={color} className='cls-2' cx='9.33' cy='15.74' r='1' />
             <circle fill={color} className='cls-2' cx='16' cy='15.74' r='1' />
-            <circle fill={color} className='cls-2' cx='12.67' cy='15.74' r='1' />
-            <path fill={color} className='cls-2' d='M20,30.25l3-3a1,1,0,1,0-1.42-1.42l-3.72,3.73a1,1,0,0,0,0,1.41l3.72,3.73a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.41Z' />
-            <path fill={color} className='cls-2' d='M34.32,34.68a1,1,0,0,0,1.41,0L39.46,31a1,1,0,0,0,0-1.41l-3.73-3.73a1,1,0,0,0-1.41,1.42l3,3-3,3A1,1,0,0,0,34.32,34.68Z' />
-            <path fill={color} className='cls-2' d='M31,26.15a1,1,0,0,0-1.37.37L25.94,33a1,1,0,1,0,1.73,1l3.73-6.45A1,1,0,0,0,31,26.15Z' />
+            <circle
+              fill={color}
+              className='cls-2'
+              cx='12.67'
+              cy='15.74'
+              r='1'
+            />
+            <path
+              fill={color}
+              className='cls-2'
+              d='M20,30.25l3-3a1,1,0,1,0-1.42-1.42l-3.72,3.73a1,1,0,0,0,0,1.41l3.72,3.73a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.41Z'
+            />
+            <path
+              fill={color}
+              className='cls-2'
+              d='M34.32,34.68a1,1,0,0,0,1.41,0L39.46,31a1,1,0,0,0,0-1.41l-3.73-3.73a1,1,0,0,0-1.41,1.42l3,3-3,3A1,1,0,0,0,34.32,34.68Z'
+            />
+            <path
+              fill={color}
+              className='cls-2'
+              d='M31,26.15a1,1,0,0,0-1.37.37L25.94,33a1,1,0,1,0,1.73,1l3.73-6.45A1,1,0,0,0,31,26.15Z'
+            />
             <path
               fill={color}
               className='cls-2'
@@ -224,7 +313,12 @@ export const WebDevIcon = ({ size, color }) => {
 
 export const SecurityIcon = ({ size, color }) => {
   return (
-    <svg height={size} viewBox='0 0 48 48' width={size} xmlns='http://www.w3.org/2000/svg'>
+    <svg
+      height={size}
+      viewBox='0 0 48 48'
+      width={size}
+      xmlns='http://www.w3.org/2000/svg'
+    >
       <path
         fill={color}
         d='M24 2l-18 8v12c0 11.11 7.67 21.47 18 24 10.33-2.53 18-12.89 18-24v-12l-18-8zm0 21.98h14c-1.06 8.24-6.55 15.58-14 17.87v-17.85h-14v-11.4l14-6.22v17.6z'
@@ -236,7 +330,13 @@ export const SecurityIcon = ({ size, color }) => {
 
 export const CareerIcon = ({ size, color }) => {
   return (
-    <svg viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg' height={size} width={size} fill={color}>
+    <svg
+      viewBox='0 0 64 64'
+      xmlns='http://www.w3.org/2000/svg'
+      height={size}
+      width={size}
+      fill={color}
+    >
       <title />
       <g data-name='Career Advancement' id='Career_Advancement'>
         <path d='M37,22.5V26H35V22.5a3,3,0,0,0-.88-2.13,3.29,3.29,0,0,0-.81-.57,31668669,31668669,0,0,0-.52.12A3.84,3.84,0,0,1,32,20H32a4,4,0,0,1-.77-.08l-.24,0-.27-.07A3,3,0,0,0,29,22.5V26H27V22.5a5,5,0,0,1,1.81-3.83,4.51,4.51,0,1,1,6.38,0c.12.09.23.19.34.29A5.05,5.05,0,0,1,37,22.5Z' />
@@ -248,6 +348,50 @@ export const CareerIcon = ({ size, color }) => {
         <circle cx='32' cy='40' r='4' />
         <circle cx='11' cy='45' r='4' />
         <circle cx='53' cy='45' r='4' />
+      </g>
+    </svg>
+  );
+};
+
+export const RocketShipIcon = ({ size, color }) => {
+  return (
+    <svg
+      xmlns='http://www.w3.org/2000/svg'
+      version='1.1'
+      width={size}
+      height={size}
+      viewBox='0 0 256 256'
+    >
+      <g
+        style={{
+          stroke: 'none',
+          strokeWidth: 0,
+          strokeDasharray: 'none',
+          strokeLinecap: 'butt',
+          strokeLinejoin: 'miter',
+          strokeMiterlimit: 10,
+          fill: 'none',
+          fillRule: 'nonzero',
+          opacity: 1,
+        }}
+        transform='translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)'
+      >
+        <path
+          d='M 89.983 5.63 c -0.006 -0.267 -0.016 -0.534 -0.026 -0.802 c -0.011 -0.299 -0.02 -0.597 -0.036 -0.897 c -0.031 -0.602 -0.07 -1.207 -0.121 -1.814 c -0.081 -0.973 -0.854 -1.745 -1.827 -1.827 c -0.607 -0.051 -1.21 -0.089 -1.811 -0.121 c -0.305 -0.016 -0.607 -0.025 -0.909 -0.036 c -0.262 -0.009 -0.525 -0.02 -0.786 -0.025 c -0.437 -0.01 -0.871 -0.013 -1.304 -0.013 c -0.072 0 -0.145 0 -0.217 0.001 c -8.628 0.042 -16.548 2.16 -24.544 6.526 C 58.261 6.7 58.12 6.773 57.979 6.85 c -0.05 0.028 -0.099 0.052 -0.149 0.08 c -0.011 0.006 -0.02 0.016 -0.031 0.022 c -6.556 3.654 -13.101 8.811 -19.875 15.585 c -0.77 0.77 -1.523 1.55 -2.268 2.334 l -13.164 1.001 c -0.385 0.029 -0.753 0.169 -1.06 0.402 L 0.785 41.987 c -0.657 0.5 -0.94 1.352 -0.711 2.145 c 0.228 0.793 0.92 1.364 1.742 1.439 l 19.373 1.749 l 6.134 6.134 c -2.174 0.497 -4.389 1.715 -6.286 3.611 c -1.136 1.137 -2.048 2.411 -2.716 3.803 c -0.873 1.849 -2.79 6.61 -4.82 11.651 l -0.991 2.459 c -0.3 0.744 -0.127 1.595 0.441 2.162 c 0.382 0.383 0.894 0.586 1.415 0.586 c 0.251 0 0.505 -0.048 0.748 -0.146 l 2.547 -1.027 c 5 -2.014 9.723 -3.917 11.576 -4.79 c 1.38 -0.664 2.655 -1.576 3.79 -2.711 c 1.896 -1.896 3.113 -4.111 3.61 -6.285 l 5.952 5.952 l 1.749 19.372 c 0.074 0.822 0.646 1.514 1.439 1.742 c 0.183 0.053 0.369 0.078 0.553 0.078 c 0.614 0 1.207 -0.283 1.592 -0.789 l 15.711 -20.646 c 0.233 -0.307 0.373 -0.675 0.402 -1.06 l 0.971 -12.775 c 0.857 -0.811 1.706 -1.635 2.547 -2.475 c 6.779 -6.779 11.939 -13.327 15.594 -19.887 c 0.004 -0.007 0.01 -0.013 0.014 -0.02 c 0.018 -0.032 0.033 -0.063 0.051 -0.095 c 0.167 -0.301 0.326 -0.602 0.486 -0.904 c 4.207 -7.847 6.251 -15.635 6.295 -24.099 c 0.001 -0.083 0.001 -0.165 0.001 -0.248 C 89.996 6.488 89.993 6.06 89.983 5.63 z M 64.413 37.493 c -1.577 1.577 -3.675 2.447 -5.907 2.447 c -2.231 0 -4.329 -0.869 -5.907 -2.447 c -3.257 -3.258 -3.257 -8.557 0 -11.815 v 0 c 3.259 -3.257 8.559 -3.255 11.814 0 c 1.578 1.577 2.448 3.675 2.448 5.907 S 65.992 35.915 64.413 37.493 z'
+          style={{
+            stroke: 'none',
+            strokeWidth: 1,
+            strokeDasharray: 'none',
+            strokeLinecap: 'butt',
+            strokeLinejoin: 'miter',
+            strokeMiterlimit: 10,
+            fill: color,
+            fillRule: 'nonzero',
+            opacity: 1,
+          }}
+          transform=' matrix(1 0 0 1 0 0) '
+          strokeLinecap='round'
+        />
       </g>
     </svg>
   );
