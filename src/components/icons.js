@@ -396,3 +396,51 @@ export const RocketShipIcon = ({ size, color }) => {
     </svg>
   );
 };
+
+export const RobotIcon = ({ size, color }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox='0 0 48 48'
+    fill='none'
+    xmlns='http://www.w3.org/2000/svg'
+  >
+    {/* Head */}
+    <rect
+      x='10'
+      y='10'
+      width='28'
+      height='22'
+      rx='4'
+      fill='none'
+      stroke={color}
+      strokeWidth='2'
+    />
+
+    {/* Antenna */}
+    <line x1='24' y1='6' x2='24' y2='10' stroke={color} strokeWidth='2' />
+    <circle cx='24' cy='5' r='2' fill='none' />
+
+    {/* Eyes */}
+    <circle cx='18' cy='19' r='3' fill={color} />
+    <circle cx='30' cy='19' r='3' fill={color} />
+    {/* Mouth */}
+    <rect x='16' y='24' width='16' height='4' rx='2' fill={color} />
+
+    {/* Body */}
+    <rect
+      x='14'
+      y='32'
+      width='20'
+      height='10'
+      rx='3'
+      fill='none'
+      stroke={color}
+      strokeWidth='2'
+    />
+
+    {/* Arms */}
+    <line x1='10' y1='22' x2='6' y2='26' stroke={color} strokeWidth='2' />
+    <line x1='38' y1='22' x2='42' y2='26' stroke={color} strokeWidth='2' />
+  </svg>
+);

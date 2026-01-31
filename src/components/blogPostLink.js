@@ -7,6 +7,7 @@ import {
   SecurityIcon,
   CareerIcon,
   RocketShipIcon,
+  RobotIcon,
 } from './icons';
 
 export default function BlogPostLink({ category, title, slug }) {
@@ -19,6 +20,8 @@ export default function BlogPostLink({ category, title, slug }) {
     icon = <SecurityIcon size={75} color='white' />;
   } else if (category === 'Space Science & Exploration') {
     icon = <RocketShipIcon size={75} color='white' />;
+  } else if (category === 'Artificial Intelligence') {
+    icon = <RobotIcon size={100} color='white' />;
   }
 
   return (
