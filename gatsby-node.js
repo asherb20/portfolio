@@ -67,8 +67,8 @@ exports.createPages = async function ({ actions, graphql }) {
           thumbnail {
             title
             gatsbyImageData
-            title
             description
+            url
           }
         }
       }
