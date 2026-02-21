@@ -94,7 +94,7 @@ export default function BlogPost({ pageContext }) {
       title={`${title} | Asher Best Blog`}
       description={description}
       structuredData={structuredData}
-      imageUrl={thumbnail.url}
+      imageUrl={thumbnail?.url}
     >
       <section className={styles.section}>
         <div>
