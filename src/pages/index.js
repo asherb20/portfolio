@@ -7,19 +7,29 @@ import * as styles from '../styles/index.module.css';
 import Carousel from '../components/carousel';
 
 export default function IndexPage({ data }) {
+  const roles = ['DevOps Engineer', 'Security Engineer', 'DevSecOps Engineer'];
+  const longestRole = roles.reduce(
+    (longest, role) => (role.length > longest.length ? role : longest),
+    '',
+  );
+
   return (
     <Layout
-      title='Asher Best – DevOps Leader | Cloud & Software Engineer'
-      description='Explore the portfolio of Asher Best, a DevOps leader and software engineer specializing in cloud computing, automation, and scalable solutions. From CI/CD to security and infrastructure, discover expertise that powers innovation. 🚀'
+      title='Asher Best – DevOps · Security · DevSecOps Engineer | Cloud Infrastructure, Secure CI/CD & Reliability'
+      description='Explore the portfolio of Asher Best, a DevOps leader and security engineer specializing in cloud engineering, DevOps automation, and secure infrastructure. From CI/CD to security and infrastructure, discover expertise that powers innovation. 🚀'
+      cannonicalUrl='https://www.asherbest.com/'
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'Person',
         name: 'Asher Best',
         url: 'https://www.asherbest.com',
-        jobTitle: 'DevOps Leader & Cloud Engineer',
+        jobTitle: 'DevOps · Security · DevSecOps Engineer',
         description:
-          'Explore the portfolio of Asher Best, a DevOps leader and software engineer specializing in cloud computing, automation, and scalable solutions. From CI/CD to security and infrastructure, discover expertise that powers innovation.',
-        sameAs: ['https://www.linkedin.com/in/asherbest', 'https://github.com/asherbest', 'https://twitter.com/asherbest']
+          'Explore the portfolio of Asher Best, a DevOps leader and security engineer specializing in cloud engineering, DevOps automation, and secure infrastructure. From CI/CD to security and infrastructure, discover expertise that powers innovation.',
+        sameAs: [
+          'https://www.linkedin.com/in/asherbest',
+          'https://github.com/asherbest',
+        ],
       }}
     >
       <section className={styles.section}>
@@ -27,32 +37,70 @@ export default function IndexPage({ data }) {
           <h1>
             Hi there, my name is <span>Asher Best</span>
             <br />
-            I'm a Director of DevOps
+            I'm a{' '}
+            <span className={styles.roleContainer}>
+              <span className={styles.roleMeasure}>{longestRole}</span>
+              {roles.map((role, idx) => (
+                <span
+                  key={role}
+                  className={styles.roleText}
+                  style={{ animationDelay: `${idx * 3}s` }}
+                >
+                  {role}
+                </span>
+              ))}
+            </span>
           </h1>
           <CallToAction href='/#about' text='Learn More' />
         </div>
       </section>
-      <section id='about' className={`${styles.section} ${styles.backgroundGreen} ${styles.clipBottom}`}>
+      <section
+        id='about'
+        className={`${styles.section} ${styles.backgroundGreen} ${styles.clipBottom}`}
+      >
         <div>
           <h2>ABOUT ME</h2>
           <div className={styles.columns}>
             <div className={styles.column}>
-              <StaticImage src='../images/asher_best.jpg' alt='Asher Best' className={styles.image} />
+              <StaticImage
+                src='../images/asher_best.jpg'
+                alt='Asher Best'
+                className={styles.image}
+              />
             </div>
             <div className={styles.column}>
               <p>
-                I'm a seasoned DevOps leader and software engineer with a passion for building scalable, secure, and high-performing systems. With expertise in cloud
-                architecture, automation, and CI/CD pipelines, I specialize in streamlining development workflows and optimizing infrastructure for reliability and efficiency.
+                With 7+ years across DevOps, security, and cloud engineering, I
+                specialize in the space where fast delivery and secure
+                infrastructure aren't in tension, they are the same goal. My
+                day-to-day spans owning production reliability on AWS and GCP,
+                securing CI/CD pipelines from code review to deployment, and
+                building observability that actually tells you something useful
+                before 3am does.
               </p>
               <p>
-                Beyond my technical expertise, I am dedicated to knowledge sharing, mentoring aspiring developers, and fostering a culture of continuous improvement. Through
-                my content channel, I create educational resources on coding, DevOps, and cloud technologies to empower the next generation of engineers.
+                I've led enterprise-scale migrations, built compliance posture
+                from scratch across SOC2, NIST, and CIS frameworks, and
+                introduced Agile and automation culture to teams that didn't
+                have one. I hold CompTIA CySA+, Security+, and Network+
+                certifications and am actively pursuing a B.S. in Computer
+                Science and an A.A.S. in Information Systems Cybersecurity.
               </p>
               <p>
-                Whether leading DevOps initiatives, architecting cloud solutions, or guiding teams toward operational excellence, I thrive at the intersection of technology
-                and innovation. Let's build something great together.
+                Outside of work I'm a coder by habit. There's always a side
+                project running, whether it's a neural network trained to detect
+                galaxies or a Kubernetes pipeline I built for fun. I'm equally
+                drawn to astrophysics, space exploration, and the growing
+                intersection of AI and scientific discovery. My long-term goal
+                is to bridge cloud-scale engineering with computational
+                research, ideally working on systems that help us understand the
+                universe a little better.
               </p>
-              <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='white' />
+              <CallToAction
+                href='mailto:ashermcbest@gmail.com'
+                text='Get In Touch'
+                color='white'
+              />
             </div>
           </div>
         </div>
@@ -63,22 +111,31 @@ export default function IndexPage({ data }) {
           <div className={styles.columns}>
             <div className={styles.column}>
               <p>
-                From cloud-native architectures to DevOps automation and secure software solutions, my work is driven by efficiency, scalability, and innovation. I’ve led
-                projects that optimize infrastructure, enhance security, and streamline development workflows, ensuring reliability at every stage.
+                From cloud-native architectures to DevOps automation and secure
+                software solutions, my work is driven by efficiency,
+                scalability, innovation, and security. I’ve led projects that
+                optimize infrastructure, enhance security, and streamline
+                development workflows, ensuring reliability at every stage.
               </p>
               <p>
-                Explore my portfolio to see real-world applications of my expertise in cloud computing, API development, automation, and software engineering. Whether it’s
-                building high-performing systems, integrating advanced DevOps strategies, or developing cutting-edge applications, each project reflects my commitment to
-                delivering impactful solutions.
+                Explore my portfolio to see real-world applications of my
+                expertise in cloud computing, API development, automation, and
+                software engineering. Whether it’s building high-performing
+                systems, integrating advanced DevOps strategies, or developing
+                cutting-edge applications, each project reflects my commitment
+                to delivering impactful solutions.
               </p>
-              <p>Let’s turn ideas into reality—one system at a time.</p>
+              <p>Let’s turn ideas into reality, one system at a time.</p>
               <CallToAction href='/portfolio' text='See Projects' />
             </div>
             <div className={styles.column}>
               <Carousel
-                slides={data.allContentfulProject.nodes.map(node => (
+                slides={data.allContentfulProject.nodes.map((node) => (
                   <div key={node.id} style={{ margin: '2em 0' }}>
-                    <GatsbyImage image={getImage(node.previewImage.gatsbyImageData)} alt={node.previewImage.title} />
+                    <GatsbyImage
+                      image={getImage(node.previewImage.gatsbyImageData)}
+                      alt={node.previewImage.title}
+                    />
                   </div>
                 ))}
               />
