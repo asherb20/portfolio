@@ -14,13 +14,14 @@ export default function PortfolioPage({ data }) {
     <Layout
       title='Portfolio – Asher Best | DevOps & Cloud Engineering Projects'
       description='Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology. 🚀'
+      canonicalUrl='https://www.asherbest.com/portfolio/'
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'CollectionPage',
         url: 'https://www.asherbest.com/portfolio/',
         name: 'Portfolio – Asher Best',
         description:
-          'Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology.'
+          'Explore Asher Best’s portfolio of DevOps, cloud computing, and software engineering projects. From automation and CI/CD pipelines to scalable cloud solutions, see how innovation and efficiency come to life through technology.',
       }}
     >
       <section className={styles.section}>
@@ -28,16 +29,26 @@ export default function PortfolioPage({ data }) {
           <h1>PORTFOLIO</h1>
           <hr className={styles.divider} />
           <p>
-            From cloud-native architectures to DevOps automation and secure software solutions, my work is driven by efficiency, scalability, and innovation. I’ve led projects
-            that optimize infrastructure, enhance security, and streamline development workflows, ensuring reliability at every stage.
+            From cloud-native architectures to DevOps automation and secure
+            software solutions, my work is driven by efficiency, scalability,
+            innovation, and security. I’ve led projects that optimize
+            infrastructure, enhance security, and streamline development
+            workflows, ensuring reliability at every stage.
           </p>
           <p>
-            Explore my portfolio to see real-world applications of my expertise in cloud computing, API development, automation, and software engineering. Whether it’s
-            building high-performing systems, integrating advanced DevOps strategies, or developing cutting-edge applications, each project reflects my commitment to
-            delivering impactful solutions.
+            Explore my portfolio to see real-world applications of my expertise
+            in cloud computing, API development, automation, and software
+            engineering. Whether it’s building high-performing systems,
+            integrating advanced DevOps strategies, or developing cutting-edge
+            applications, each project reflects my commitment to delivering
+            impactful solutions.
           </p>
-          <p>Let’s turn ideas into reality—one system at a time.</p>
-          <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='green' />
+          <p>Let’s turn ideas into reality, one system at a time.</p>
+          <CallToAction
+            href='mailto:ashermcbest@gmail.com'
+            text='Get In Touch'
+            color='green'
+          />
         </div>
       </section>
       <section className={styles.section}>
@@ -45,7 +56,7 @@ export default function PortfolioPage({ data }) {
           <h2>PROJECTS</h2>
           <hr className={styles.divider} />
           <div>
-            {projects.map(project => (
+            {projects.map((project) => (
               <Project
                 key={project.id}
                 title={project.title}
@@ -67,8 +78,13 @@ export default function PortfolioPage({ data }) {
             </div>
             <hr className={styles.divider} />
             <div className={styles.gallery}>
-              {posts.map(post => (
-                <BlogPostLink key={post.id} category={post.category.name} title={post.title} slug={post.slug} />
+              {posts.map((post) => (
+                <BlogPostLink
+                  key={post.id}
+                  category={post.category.name}
+                  title={post.title}
+                  slug={post.slug}
+                />
               ))}
             </div>
           </div>
@@ -95,7 +111,10 @@ export const programmingQuery = graphql`
         }
       }
     }
-    allContentfulBlogPost(sort: { order: DESC, fields: dateWritten }, limit: 3) {
+    allContentfulBlogPost(
+      sort: { order: DESC, fields: dateWritten }
+      limit: 3
+    ) {
       nodes {
         id
         slug

@@ -9,14 +9,14 @@ export default function Blog({ data }) {
   const categories = data.allContentfulBlogPostCategory.nodes;
 
   const [selectedCategories, setSelectedCategories] = useState(
-    categories.map((category) => category.name)
+    categories.map((category) => category.name),
   );
 
   const onCategoryChange = (e) => {
     setSelectedCategories(
       selectedCategories.includes(e.target.name)
         ? selectedCategories.filter((category) => category !== e.target.name)
-        : [...selectedCategories, e.target.name]
+        : [...selectedCategories, e.target.name],
     );
   };
 
@@ -24,6 +24,7 @@ export default function Blog({ data }) {
     <Layout
       title='Blog – Asher Best | DevOps, Cloud, & Software Insights'
       description='Dive into Asher Best’s blog for insights on DevOps, cloud computing, automation, software development, cybersecurity, and space science and exploration. 🚀'
+      canonicalUrl='https://www.asherbest.com/blog/'
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'Blog',
@@ -77,7 +78,7 @@ export default function Blog({ data }) {
             <div className={styles.columns}>
               {posts
                 .filter((post) =>
-                  selectedCategories.includes(post.category.name)
+                  selectedCategories.includes(post.category.name),
                 )
                 .map((node) => (
                   <BlogPostLink

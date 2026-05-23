@@ -13,13 +13,14 @@ export default function About({ data }) {
     <Layout
       title='About Asher Best – DevOps Leader & Cloud Engineer'
       description='Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship. 🚀'
+      canonicalUrl='https://www.asherbest.com/about/'
       structuredData={{
         '@context': 'https://schema.org',
         '@type': 'AboutPage',
         url: 'https://www.asherbest.com/about/',
         name: 'About Asher Best',
         description:
-          'Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship.'
+          'Learn more about Asher Best, a DevOps leader and software engineer with a passion for automation, cloud solutions, and scalable architectures. With expertise in CI/CD, security, and infrastructure, Asher drives innovation through technology and mentorship.',
       }}
     >
       <section className={styles.section}>
@@ -29,21 +30,44 @@ export default function About({ data }) {
           <div className={styles.columns}>
             <div className={styles.column}>
               <p>
-                I'm a seasoned DevOps leader and software engineer with a passion for building scalable, secure, and high-performing systems. With expertise in cloud
-                architecture, automation, and CI/CD pipelines, I specialize in streamlining development workflows and optimizing infrastructure for reliability and efficiency.
+                With 7+ years across DevOps, security, and cloud engineering, I
+                specialize in the space where fast delivery and secure
+                infrastructure aren't in tension, they are the same goal. My
+                day-to-day spans owning production reliability on AWS and GCP,
+                securing CI/CD pipelines from code review to deployment, and
+                building observability that actually tells you something useful
+                before 3am does.
               </p>
               <p>
-                Beyond my technical expertise, I am dedicated to knowledge sharing, mentoring aspiring developers, and fostering a culture of continuous improvement. Through
-                my content channel, I create educational resources on coding, DevOps, and cloud technologies to empower the next generation of engineers.
+                I've led enterprise-scale migrations, built compliance posture
+                from scratch across SOC2, NIST, and CIS frameworks, and
+                introduced Agile and automation culture to teams that didn't
+                have one. I hold CompTIA CySA+, Security+, and Network+
+                certifications and am actively pursuing a B.S. in Computer
+                Science and an A.A.S. in Information Systems Cybersecurity.
               </p>
               <p>
-                Whether leading DevOps initiatives, architecting cloud solutions, or guiding teams toward operational excellence, I thrive at the intersection of technology
-                and innovation. Let's build something great together.
+                Outside of work I'm a coder by habit. There's always a side
+                project running, whether it's a neural network trained to detect
+                galaxies or a Kubernetes pipeline I built for fun. I'm equally
+                drawn to astrophysics, space exploration, and the growing
+                intersection of AI and scientific discovery. My long-term goal
+                is to bridge cloud-scale engineering with computational
+                research, ideally working on systems that help us understand the
+                universe a little better.
               </p>
-              <CallToAction href='mailto:ashermcbest@gmail.com' text='Get In Touch' color='green' />
+              <CallToAction
+                href='mailto:ashermcbest@gmail.com'
+                text='Get In Touch'
+                color='green'
+              />
             </div>
             <div className={styles.column}>
-              <StaticImage src='../images/asher_best.jpg' alt='Asher Best' className={styles.image} />
+              <StaticImage
+                src='../images/asher_best.jpg'
+                alt='Asher Best'
+                className={styles.image}
+              />
             </div>
           </div>
         </div>
@@ -57,8 +81,13 @@ export default function About({ data }) {
             </div>
             <hr className={styles.divider} />
             <div className={styles.gallery}>
-              {posts.map(post => (
-                <BlogPostLink key={post.id} category={post.category.name} title={post.title} slug={post.slug} />
+              {posts.map((post) => (
+                <BlogPostLink
+                  key={post.id}
+                  category={post.category.name}
+                  title={post.title}
+                  slug={post.slug}
+                />
               ))}
             </div>
           </div>
@@ -70,7 +99,10 @@ export default function About({ data }) {
 
 export const aboutQuery = graphql`
   query AboutQuery {
-    allContentfulBlogPost(sort: { order: DESC, fields: dateWritten }, limit: 3) {
+    allContentfulBlogPost(
+      sort: { order: DESC, fields: dateWritten }
+      limit: 3
+    ) {
       nodes {
         id
         slug

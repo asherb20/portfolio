@@ -8,6 +8,7 @@ export default function Layout({
   description,
   structuredData,
   imageUrl,
+  canonicalUrl,
   children,
 }) {
   const schema = JSON.stringify(structuredData);
@@ -16,6 +17,7 @@ export default function Layout({
       <Helmet>
         <title>{title}</title>
         <meta name='description' content={description} />
+        {canonicalUrl && <link rel='canonical' href={canonicalUrl} />}
         {imageUrl && <meta property='og:image' content={imageUrl} />}
         <script type='application/ld+json'>{schema}</script>
       </Helmet>
