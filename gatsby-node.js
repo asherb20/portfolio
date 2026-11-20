@@ -1,10 +1,79 @@
-exports.createPages = async function ({ actions, graphql }) {
-  const { data } = await graphql(`
+const WORDS_PER_MINUTE = 225;
+
+// Count words in a Contentful rich-text document (JSON string from `content.raw`).
+function countWords(raw) {
+  if (!raw) return 0;
+  let words = 0;
+  const walk = (node) => {
+    if (!node) return;
+    if (node.nodeType === 'text' && node.value) {
+      words += node.value.trim().split(/\s+/).filter(Boolean).length;
+    }
+    (node.content || []).forEach(walk);
+  };
+  try {
+    walk(JSON.parse(raw));
+  } catch {
+    return 0;
+  }
+  return words;
+}
+
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  actions.createTypes([
+    // resumeUrl is null until static/resume.pdf exists, so it can't be inferred.
+    `type SiteSiteMetadata {
+      resumeUrl: String
+    }`,
+    // Optional project fields. Declared here so builds succeed before (or without)
+    // these fields existing on the Contentful "Project" content type.
+    `type ContentfulProject implements Node {
+      techStack: [String]
+      repoUrl: String
+      featured: Boolean
+      order: Int
+    }`,
+    schema.buildObjectType({
+      name: 'ContentfulBlogPost',
+      interfaces: ['Node'],
+      fields: {
+        readingTime: {
+          type: 'Int',
+          resolve: (source) =>
+            Math.max(1, Math.round(countWords(source.content && source.content.raw) / WORDS_PER_MINUTE))
+        }
+      }
+    })
+  ]);
+};
+
+// Contentful structured data uses `_type`-style keys; JSON-LD wants `@type`.
+function toJsonLd(sd) {
+  if (!sd) return null;
+  const rename = (obj) =>
+    obj &&
+    Object.fromEntries(
+      Object.entries(obj).map(([key, value]) => [
+        key === '_context' ? '@context' : key === '_type' ? '@type' : key === '_id' ? '@id' : key,
+        value && typeof value === 'object' && !Array.isArray(value) ? rename(value) : value
+      ])
+    );
+  return rename(sd);
+}
+
+exports.createPages = async function ({ actions, graphql, reporter }) {
+  const { data, errors } = await graphql(`
     query BlogPostQuery {
-      allContentfulBlogPost {
+      allContentfulBlogPost(sort: { dateWritten: DESC }) {
         nodes {
           id
           slug
+          title
+          description
+          readingTime
+          category {
+            name
+          }
           author {
             name
             photo {
@@ -37,8 +106,6 @@ exports.createPages = async function ({ actions, graphql }) {
           }
           createdAt(formatString: "LL")
           dateWritten(formatString: "LL")
-          title
-          description
           structuredData {
             _context
             _type
@@ -75,40 +142,25 @@ exports.createPages = async function ({ actions, graphql }) {
     }
   `);
 
+  if (errors) {
+    reporter.panicOnBuild('Error loading blog posts from Contentful', errors);
+    return;
+  }
+
   const posts = data.allContentfulBlogPost.nodes;
+  const link = (post) => (post ? { title: post.title, slug: post.slug } : null);
 
-  posts.forEach((post) => {
-    const slug = post.slug;
-    const structuredData = {
-      '@context': post.structuredData._context,
-      '@type': post.structuredData._type,
-      headline: post.structuredData.headline,
-      author: {
-        '@type': post.structuredData.author._type,
-        name: post.structuredData.author.name,
-        url: post.structuredData.author.url,
-      },
-      publisher: {
-        '@type': post.structuredData.publisher._type,
-        name: post.structuredData.publisher.name,
-        url: post.structuredData.publisher.url,
-      },
-      mainEntityOfPage: {
-        '@type': post.structuredData.mainEntityOfPage._type,
-        '@id': post.structuredData.mainEntityOfPage._id,
-      },
-      url: post.structuredData.url,
-      datePublished: post.structuredData.datePublished,
-      dateModified: post.structuredData.dateModified,
-      description: post.structuredData.description,
-      keywords: post.structuredData.keywords,
-      articleSection: post.structuredData.articleSection,
-    };
-
+  posts.forEach((post, index) => {
     actions.createPage({
-      path: `/blog/${slug}/`,
-      component: require.resolve(`./src/templates/blogPost.js`),
-      context: { ...post, structuredData },
+      path: `/blog/${post.slug}/`,
+      component: require.resolve('./src/templates/blogPost.js'),
+      context: {
+        ...post,
+        structuredData: toJsonLd(post.structuredData),
+        // Posts are sorted newest first: "newer" is the previous index.
+        newer: link(posts[index - 1]),
+        older: link(posts[index + 1])
+      }
     });
   });
 };
