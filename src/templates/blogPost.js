@@ -1,125 +1,104 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
-import Layout from '../components/layout';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import Layout from '../components/layout';
+import Seo from '../components/seo';
+import CodeBlock from '../components/codeBlock';
 import * as styles from '../styles/blogPost.module.css';
-import { BLOCKS } from '@contentful/rich-text-types';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+const options = {
+  renderMark: {
+    superscript: (text) => <sup>{text}</sup>
+  },
+  renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data;
+      const external = /^https?:\/\//.test(uri) && !uri.includes('asherbest.com');
+      return (
+        <a href={uri} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>
+          {children}
+        </a>
+      );
+    },
+    [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+      const target = node.data.target;
+      if (target?.__typename === 'ContentfulCodeSnippet' && target.code?.code) {
+        return <CodeBlock code={target.code.code} language={target.language} filePath={target.filePath} />;
+      }
+      return null;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      const { gatsbyImageData, title, description } = node.data.target || {};
+      const image = gatsbyImageData && getImage(gatsbyImageData);
+      if (!image) return null;
+      return (
+        <figure className={styles.figure}>
+          <GatsbyImage image={image} alt={description || title || ''} />
+          {description && <figcaption>{description}</figcaption>}
+        </figure>
+      );
+    }
+  }
+};
 
 export default function BlogPost({ pageContext }) {
-  const [copied, setCopied] = useState(false);
-
-  const onCopy = () => {
-    setCopied(true);
-    setTimeout(() => setCopied(false), 3000); // Reset copy status after 3 seconds
-  };
-
-  const {
-    author,
-    content,
-    dateWritten,
-    title,
-    description,
-    structuredData,
-    thumbnail,
-  } = pageContext;
-
-  const options = {
-    renderMark: {
-      superscript: (text) => <sup className='superscript'>{text}</sup>,
-    },
-    renderNode: {
-      [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-        const { __typename } = node.data.target;
-        switch (__typename) {
-          case 'ContentfulCodeSnippet':
-            const {
-              filePath,
-              code: { code },
-            } = node.data.target;
-            return (
-              <div className={styles.codeSection}>
-                <div className={styles.codeHeader}>
-                  <div>
-                    <pre>
-                      <code>
-                        <strong>{filePath}</strong>
-                      </code>
-                    </pre>
-                  </div>
-                  <div>
-                    <CopyToClipboard text={code} onCopy={onCopy}>
-                      <button className={styles.copyButton}>
-                        {copied ? 'Copied!' : 'Copy'}
-                      </button>
-                    </CopyToClipboard>
-                  </div>
-                </div>
-                <pre className={styles.codeBlock}>
-                  <code>
-                    {code.split('\n').map((line, index) => {
-                      return `${index + 1}\t${line}\n`;
-                    })}
-                  </code>
-                </pre>
-              </div>
-            );
-          default:
-            return null;
-        }
-      },
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
-        const { gatsbyImageData, title, description } = node.data.target;
-        if (!gatsbyImageData) {
-          return null;
-        }
-        const image = getImage(gatsbyImageData);
-        if (!image) {
-          return null;
-        }
-        return (
-          <div className={styles.embeddedImage}>
-            <GatsbyImage image={image} alt={title} />
-            <div>
-              <em>{description}</em>
-            </div>
-          </div>
-        );
-      },
-    },
-  };
+  const { author, category, content, dateWritten, readingTime, title, thumbnail, newer, older } = pageContext;
+  const authorPhoto = author?.photo && getImage(author.photo.gatsbyImageData);
+  const thumbnailImage = thumbnail && getImage(thumbnail.gatsbyImageData);
 
   return (
-    <Layout
-      title={`${title} | Asher Best Blog`}
-      description={description}
-      structuredData={structuredData}
-      imageUrl={thumbnail?.url}
-    >
-      <section className={styles.section}>
-        <div>
+    <Layout>
+      <article className={`container ${styles.article}`}>
+        <Link to='/#writing' className={styles.back}>
+          ← All writing
+        </Link>
+        <header className={styles.header}>
+          {category?.name && <p className={styles.category}>{category.name}</p>}
           <h1>{title}</h1>
-          <div className={styles.description}>
-            <GatsbyImage
-              image={getImage(author.photo.gatsbyImageData)}
-              alt={author.photo.title}
-            />
+          <div className={styles.byline}>
+            {authorPhoto && <GatsbyImage className={styles.avatar} image={authorPhoto} alt={author.photo.title || author.name} />}
             <p>
-              <strong>{author.name}</strong> • {dateWritten}
+              {author?.name && <strong>{author.name}</strong>}
+              {[dateWritten, readingTime && `${readingTime} min read`].filter(Boolean).map((part) => (
+                <span key={part}> · {part}</span>
+              ))}
             </p>
           </div>
-          {thumbnail && (
-            <div>
-              <GatsbyImage
-                className={styles.thumbnail}
-                image={getImage(thumbnail.gatsbyImageData)}
-                alt={thumbnail.title}
-              />
-            </div>
-          )}
-          {renderRichText(content, options)}
-        </div>
-      </section>
+        </header>
+        {thumbnailImage && <GatsbyImage className={styles.thumbnail} image={thumbnailImage} alt={thumbnail.title || ''} />}
+        <div className={styles.content}>{content && renderRichText(content, options)}</div>
+        {(newer || older) && (
+          <nav className={styles.pager} aria-label='More posts'>
+            {older ? (
+              <Link to={`/blog/${older.slug}/`}>
+                <span>← Older</span>
+                {older.title}
+              </Link>
+            ) : (
+              <span />
+            )}
+            {newer && (
+              <Link to={`/blog/${newer.slug}/`} className={styles.next}>
+                <span>Newer →</span>
+                {newer.title}
+              </Link>
+            )}
+          </nav>
+        )}
+      </article>
     </Layout>
   );
 }
+
+export const Head = ({ pageContext, location }) => (
+  <Seo
+    title={`${pageContext.title} | Asher Best`}
+    description={pageContext.description}
+    pathname={location.pathname}
+    image={pageContext.thumbnail?.url}
+    type='article'
+    structuredData={pageContext.structuredData}
+  />
+);

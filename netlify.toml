@@ -3,4 +3,69 @@
   publish = "public"
 
 [build.environment]
+  NODE_VERSION = "22"
   NODE_OPTIONS = "--max_old_space_size=4096"
+
+# Pages folded into the landing page. 301s keep existing backlinks (and their
+# search ranking) working. Only the exact /blog paths redirect — /blog/<slug>/
+# post pages are untouched.
+[[redirects]]
+  from = "/about"
+  to = "/#about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/"
+  to = "/#about"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio"
+  to = "/#projects"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/portfolio/"
+  to = "/#projects"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/#writing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/"
+  to = "/#writing"
+  status = 301
+  force = true
+
+# Older pages from the original site.
+[[redirects]]
+  from = "/programming"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/programming/"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/music"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/music/"
+  to = "/"
+  status = 301
+  force = true

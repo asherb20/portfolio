@@ -1,37 +1,5 @@
 import * as React from 'react';
 
-export const Bars = ({ size, color }) => {
-  return (
-    <svg
-      height={size}
-      width={size}
-      fill={color}
-      viewBox='0 0 448 512'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path d='M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z' />
-    </svg>
-  );
-};
-
-export const Cross = ({ size, color }) => {
-  return (
-    <svg
-      height={size}
-      id='Layer_1'
-      version='1.1'
-      viewBox='0 0 512 512'
-      width={size}
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        fill={color}
-        d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z'
-      />
-    </svg>
-  );
-};
-
 export const LinkedIn = ({ size, color }) => {
   return (
     <svg
@@ -65,104 +33,6 @@ export const GitHub = ({ size, color }) => {
           d='M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z'
         />
       </g>
-    </svg>
-  );
-};
-
-export const Email = ({ size, circleColor, iconColor }) => {
-  return (
-    <svg
-      height={size}
-      width={size}
-      id='Layer_1'
-      version='1.1'
-      viewBox='0 0 128 128'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <g>
-        <circle fill={circleColor} cx='64' cy='64' r='64' />
-      </g>
-      <g>
-        <g>
-          <path d='M64,28' />
-        </g>
-      </g>
-      <g>
-        <g>
-          <path
-            fill={iconColor}
-            d='M64,72.4l38.2-32.7c-0.6-0.4-1.4-0.7-2.2-0.7H28c-0.8,0-1.6,0.3-2.2,0.7L64,72.4z'
-          />
-        </g>
-        <g>
-          <path
-            fill={iconColor}
-            d='M66.6,75.4c-1.5,1.3-3.7,1.3-5.2,0L24,43.5V85c0,2.2,1.8,4,4,4h72c2.2,0,4-1.8,4-4V43.4L66.6,75.4z'
-          />
-        </g>
-      </g>
-    </svg>
-  );
-};
-
-export const ChevronUp = ({ size, color }) => {
-  return (
-    <svg
-      height={size}
-      id='Layer_1'
-      version='1.1'
-      viewBox='0 0 512 512'
-      width={size}
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path
-        fill={color}
-        d='M256,213.7L256,213.7L256,213.7l174.2,167.2c4.3,4.2,11.4,4.1,15.8-0.2l30.6-29.9c4.4-4.3,4.5-11.3,0.2-15.5L264.1,131.1  c-2.2-2.2-5.2-3.2-8.1-3c-3-0.1-5.9,0.9-8.1,3L35.2,335.3c-4.3,4.2-4.2,11.2,0.2,15.5L66,380.7c4.4,4.3,11.5,4.4,15.8,0.2L256,213.7  z'
-      />
-    </svg>
-  );
-};
-
-export const Sun = ({ size, color }) => {
-  return (
-    <svg
-      fill='none'
-      height={size}
-      stroke={color}
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='2'
-      viewBox='0 0 24 24'
-      width={size}
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <circle cx='12' cy='12' r='5' />
-      <line x1='12' x2='12' y1='1' y2='3' />
-      <line x1='12' x2='12' y1='21' y2='23' />
-      <line x1='4.22' x2='5.64' y1='4.22' y2='5.64' />
-      <line x1='18.36' x2='19.78' y1='18.36' y2='19.78' />
-      <line x1='1' x2='3' y1='12' y2='12' />
-      <line x1='21' x2='23' y1='12' y2='12' />
-      <line x1='4.22' x2='5.64' y1='19.78' y2='18.36' />
-      <line x1='18.36' x2='19.78' y1='5.64' y2='4.22' />
-    </svg>
-  );
-};
-
-export const Moon = ({ size, color }) => {
-  return (
-    <svg
-      fill='none'
-      height={size}
-      stroke={color}
-      strokeLinecap='round'
-      strokeLinejoin='round'
-      strokeWidth='2'
-      viewBox='0 0 24 24'
-      width={size}
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <path d='M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z' />
     </svg>
   );
 };
@@ -444,3 +314,48 @@ export const RobotIcon = ({ size, color }) => (
     <line x1='38' y1='22' x2='42' y2='26' stroke={color} strokeWidth='2' />
   </svg>
 );
+
+export const Email = ({ size, color }) => (
+  <svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+    <rect x='2' y='4' width='20' height='16' rx='2' />
+    <path d='m22 7-10 6L2 7' />
+  </svg>
+);
+
+export const Rss = ({ size, color }) => (
+  <svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+    <path d='M4 11a9 9 0 0 1 9 9' />
+    <path d='M4 4a16 16 0 0 1 16 16' />
+    <circle cx='5' cy='19' r='1' />
+  </svg>
+);
+
+export const ExternalLink = ({ size, color }) => (
+  <svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+    <path d='M15 3h6v6' />
+    <path d='M10 14 21 3' />
+    <path d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6' />
+  </svg>
+);
+
+export const Download = ({ size, color }) => (
+  <svg width={size} height={size} viewBox='0 0 24 24' fill='none' stroke={color} strokeWidth='2' strokeLinecap='round' strokeLinejoin='round' aria-hidden='true'>
+    <path d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4' />
+    <path d='m7 10 5 5 5-5' />
+    <path d='M12 15V3' />
+  </svg>
+);
+
+const CATEGORY_ICONS = {
+  'Web Development': WebDevIcon,
+  DevOps: DevOpsIcon,
+  Cybersecurity: SecurityIcon,
+  'Space Science & Exploration': RocketShipIcon,
+  'Artificial Intelligence': RobotIcon,
+};
+
+// Icon for a blog category; falls back to the career icon for new categories.
+export const CategoryIcon = ({ category, size = 28, color = 'currentColor' }) => {
+  const Icon = CATEGORY_ICONS[category] || CareerIcon;
+  return <Icon size={size} color={color} />;
+};

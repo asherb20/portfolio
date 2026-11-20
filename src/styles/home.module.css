@@ -1,0 +1,179 @@
+/* Hero */
+.hero {
+  min-height: min(calc(100vh - var(--header-height)), 52rem);
+  min-height: min(calc(100svh - var(--header-height)), 52rem);
+  display: flex;
+  align-items: center;
+  padding: 4rem 0;
+  background: radial-gradient(ellipse at 85% 10%, rgba(58, 175, 169, 0.14), transparent 55%);
+}
+.eyebrow {
+  display: block;
+  color: var(--text);
+  font-weight: 600;
+  font-size: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+  margin-bottom: 0.5rem;
+}
+.lede {
+  max-width: 40rem;
+  font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.skills {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.skills ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.cert {
+  border-color: var(--accent-strong);
+  color: var(--accent);
+}
+
+/* Rotating role (carried over from the previous hero) */
+.roleContainer {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  vertical-align: bottom;
+  height: 1.3em;
+  color: var(--accent);
+}
+.roleMeasure {
+  visibility: hidden;
+  display: inline-block;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.roleText {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideRole 9s ease-in-out infinite;
+  white-space: nowrap;
+}
+/* Each of the 3 roles owns one third of the 9s cycle (offset with negative delays),
+   starting visible so the first role shows immediately on load. */
+@keyframes slideRole {
+  0%,
+  30% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  33.33% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  33.34%,
+  97% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  /* Show the first role statically instead of animating. */
+  .roleText {
+    animation: none !important;
+  }
+  .roleFirst {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Sections */
+.section {
+  padding: clamp(4rem, 3rem + 4vw, 7rem) 0;
+  border-top: 1px solid var(--border);
+}
+.heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+}
+.heading span {
+  font-family: var(--font-mono);
+  font-size: 0.5em;
+  color: var(--accent);
+}
+.headingRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.rss {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.intro {
+  max-width: 40rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* About */
+.about {
+  display: grid;
+  gap: 2.5rem;
+  align-items: start;
+}
+.about p {
+  max-width: 65ch;
+}
+.photo {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 12px 12px 0 -1px var(--accent-strong);
+  max-width: 360px;
+}
+@media (min-width: 860px) {
+  .about {
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+  }
+}
+
+/* Projects */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+}
+
+/* Contact */
+.contact {
+  text-align: left;
+}
+.contact p {
+  max-width: 40rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
