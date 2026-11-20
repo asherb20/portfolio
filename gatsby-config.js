@@ -1,5 +1,7 @@
 // Loads .env.development / .env.production locally. Never overrides variables already set (e.g. on Netlify).
-require('dotenv').config({ path: `./.env.${process.env.NODE_ENV || 'development'}` });
+require('dotenv').config({
+  path: `./.env.${process.env.NODE_ENV || 'development'}`,
+});
 
 const fs = require('fs');
 
@@ -16,9 +18,9 @@ module.exports = {
     // The résumé button only renders once static/resume.pdf exists.
     resumeUrl: fs.existsSync('./static/resume.pdf') ? '/resume.pdf' : null,
     social: {
-      linkedin: 'https://www.linkedin.com/in/asher-best-16b121191/',
-      github: 'https://github.com/asherb20'
-    }
+      linkedin: 'https://www.linkedin.com/in/asherbest/',
+      github: 'https://github.com/asherb20',
+    },
   },
   trailingSlash: 'always',
   plugins: [
@@ -26,8 +28,8 @@ module.exports = {
       resolve: 'gatsby-source-contentful',
       options: {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        spaceId: process.env.CONTENTFUL_SPACE_ID
-      }
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+      },
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
@@ -35,11 +37,11 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: { name: 'images', path: './src/images/' },
-      __key: 'images'
+      __key: 'images',
     },
     {
       resolve: 'gatsby-plugin-google-tagmanager',
-      options: { id: 'GTM-PF9WHM4' }
+      options: { id: 'GTM-PF9WHM4' },
     },
     'gatsby-plugin-sitemap',
     {
@@ -51,8 +53,8 @@ module.exports = {
         background_color: '#17252a',
         theme_color: '#17252a',
         display: 'minimal-ui',
-        icon: 'src/images/icon.png'
-      }
+        icon: 'src/images/icon.png',
+      },
     },
     {
       resolve: 'gatsby-plugin-feed',
@@ -80,7 +82,7 @@ module.exports = {
                   date: post.dateWritten || post.createdAt,
                   url,
                   guid: url,
-                  categories: post.category ? [post.category.name] : []
+                  categories: post.category ? [post.category.name] : [],
                 };
               }),
             query: `
@@ -100,10 +102,10 @@ module.exports = {
               }
             `,
             output: '/rss.xml',
-            title: 'Asher Best – Writing'
-          }
-        ]
-      }
-    }
-  ]
+            title: 'Asher Best – Writing',
+          },
+        ],
+      },
+    },
+  ],
 };
