@@ -10,7 +10,7 @@ import { certifications, skills } from '../data/skills';
 import { useSiteMetadata } from '../hooks';
 import * as styles from '../styles/home.module.css';
 
-const ROLES = ['DevSecOps Engineer', 'DevOps Engineer', 'Security Engineer'];
+const ROLES = ['DevSecOps Engineer', 'DevOps Engineer', 'Platform Engineer'];
 const LONGEST_ROLE = ROLES.reduce(
   (longest, role) => (role.length > longest.length ? role : longest),
   '',
@@ -35,7 +35,7 @@ export default function IndexPage({ data }) {
   return (
     <Layout>
       {/* Hero */}
-      <section className={styles.hero}>
+      <section className={styles.hero} id='top'>
         <div className='container'>
           <h1>
             <span className={styles.eyebrow}>Hi, I'm Asher Best</span>
