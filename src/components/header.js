@@ -6,12 +6,12 @@ const LINKS = [
   { href: '/#about', text: 'About' },
   { href: '/#projects', text: 'Projects' },
   { href: '/#writing', text: 'Writing' },
-  { href: '/#contact', text: 'Contact' }
+  { href: '/#contact', text: 'Contact' },
 ];
 
 export default function Header() {
   return (
-    <header className={styles.header} id='top'>
+    <header className={styles.header}>
       <div className={`container ${styles.inner}`}>
         <Link to='/' className={styles.brand}>
           Asher<span>Best</span>
