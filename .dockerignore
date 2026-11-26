@@ -1,0 +1,37 @@
+# Local deps and cache
+.cache
+.venv
+node_modules
+public
+.git
+.gitignore
+
+# Env vars and secrets
+.env*
+.pre-commit-config.yaml
+.secrets.baseline
+
+# Netlify
+netlify.toml
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Logs
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# Editor / OS files
+.vscode
+.idea
+.DS_Store
+Thumbs.db
+
+# Repo / tooling files the image doesn't need
+README.md
+.github
+.claude
+docker-compose*.yml
+coverage
