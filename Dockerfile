@@ -6,7 +6,7 @@
 # plain static files, so a multi-arch build doesn't need to run Gatsby/sharp
 # under QEMU emulation — only the tiny nginx stage differs per architecture.
 # ---------------------------------------------------------------------------
-FROM --platform=$BUILDPLATFORM node:22-bookworm-slim AS build
+FROM --platform=$BUILDPLATFORM node:22-bookworm-slim@sha256:be979e5523c76fa4d5ca4ebd3099078f220aa47ec39c48ad5b5df9314debd6eb AS build
 
 WORKDIR /app
 
@@ -36,7 +36,7 @@ RUN --mount=type=secret,id=contentful_access_token,env=CONTENTFUL_ACCESS_TOKEN,r
 # under the Kubernetes "restricted" Pod Security Standard with no capabilities.
 # No Node, npm, source code or secrets are carried into this image.
 # ---------------------------------------------------------------------------
-FROM nginxinc/nginx-unprivileged:stable-alpine AS runtime
+FROM nginxinc/nginx-unprivileged:stable-alpine@sha256:f5116ed4606f3eb015dd4a8e28cb9b351476dc0ad4bc6e9f93b19cec130cdf03 AS runtime
 
 LABEL org.opencontainers.image.source="https://github.com/asherb20/portfolio" \
       org.opencontainers.image.description="Asher Best portfolio site (Gatsby, served by nginx)" \
